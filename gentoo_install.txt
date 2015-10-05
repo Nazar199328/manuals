@@ -1,0 +1,250 @@
+1. Скачивание образа и создание загрузочной флешки
+--------------------------------------------------
+http://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/ - зеркало яндекса для скачивания iso и stage3
+С данного зеркала качаем Calculate
+
+2. Подготовка дисков.
+----------------------
+# fdisk /dev/sda
+
+Device     Boot  Size     Type
+/dev/sda1  *     50G      HPFS/NTFS/exFAT
+/dev/sda2        200M     Linux
+/dev/sda3        8G       Linux swap / Solaris
+/dev/sda4        873.3G   Extended
+/dev/sda5        20G      Linux
+/dev/sda6        858.3G   Linux
+
+# mkfs.ext2 -L boot /dev/sda2
+# mkfs.ext4 -L root /dev/sda5
+# mkfs.ext4 -L home /dev/sda6
+
+# mkswap /dev/sda3
+# swapon /dev/sda3
+
+# mkdir /mnt/gentoo
+# mount /dev/sda5 /mnt/gentoo
+# mkdir /mnt/gentoo/{boot,home}
+# mount /dev/sda2 /mnt/gentoo/boot
+# mount /dev/sda6 /mnt/gentoo/home
+
+3. Установка stage3
+-------------------
+# date
+# date MMDDhhmmYYYY
+#cd /mnt/gentoo
+
+Далее качаем архив stage3 с зеркала Яндекса и распаковываем:
+#tar xvjpf stage3-*.tar.bz2 --xattrs
+--xattrs будет включать расширенные атрибуты, хранящиеся в архиве.
+
+http://linuxforum.ru/topic/476 - примеры make.conf
+
+Конфигурируем опции компиляции:
+nano -w /mnt/gentoo/etc/portage/make.conf
+-------------------------------------
+CFLAGS="-O2 -march=native -msse -msse2 -mssse3 -mmmx -pipe"
+CXXFLAGS="${CFLAGS}"
+MAKEOPTS="-j5"
+--------------------------------------
+-pipe - использование каналов вместо временных файлов. Требует много памяти
+-march - имя целевой архитектуры. native означает текущую архитектуру
+
+
+4. Установка базовой системы.
+-----------------------------
+nano -w /etc/resolve.conf
+------------------------
+nameserver 8.8.4.4
+nameserver 8.8.8.8
+
+Добавим GENTOO_MIRRORS и SYNC соответственно
+# mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
+# mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
+
+cp -L /etc/resolv.conf /mnt/gentoo/etc/ - информация о DNS-серверах
+ключ -L не дает скопировать символьную ссылку. Только собственно файл
+
+Монтируем файловые системы:
+# mount -t proc proc /mnt/gentoo/proc
+# mount --rbind /sys /mnt/gentoo/sys
+# mount --make-rslave /mnt/gentoo/sys
+# mount --rbind /dev /mnt/gentoo/dev
+# mount --make-rslave /mnt/gentoo/dev
+
+Переходим в свежеустановленную систему (chroot):
+# chroot /mnt/gentoo /bin/bash
+# source /etc/profile
+# export PS1="(chroot) $PS1"
+
+Установим portage
+# emerge-webrsync
+
+Выберем профиль системы:
+# eselect profile list
+
+# eselect profile set <номер профиля с  systemd>
+
+Посмотрим возможные use-флаги:
+# emerge --info | grep ^USE
+Описание всех флагов:
+less /usr/portage/profiles/use.desc
+
+Настроим USE:
+nano -w /etc/portage/make.conf
+-------------------------------
+USE="X -gtk gtk2 gtk3 -gnome -kde qt4 udev /
+    mmx sse sse2 ssse3 alsa acpi dbus systemd /
+    -pulseaudio"
+
+Временная зона:
+# echo "Europe/Moscow" > /etc/timezone
+# emerge --config sys-libs/timezone-data
+
+#nano -w /etc/locale.gen
+-------------------------
+en_US.UTF-8 UTF-8
+en_US ISO-8859-1
+
+Генерируем локали:
+# locale-gen
+
+# eselect locale list
+Выберем английскую utf-8 локаль:
+# eselect locale set <номер локали>
+
+Обновляем профили:
+# env-update && source /etc/profile
+
+4. Настройка ядра.
+------------------
+Ставим исходники ядра
+# emerge --ask sys-kernel/gentoo-sources
+
+Здесь должен оказаться симлинк на ядро:
+# ls -l /usr/src/linux
+
+Установим пакет, содержащий утилиту lspci
+# emerge --ask sys-apps/pciutils
+
+Перейдем в папку с симлинком и запустим конфигуратор ядра:
+# cd /usr/src/linux
+# make menuconfig
+
+Далее нужно сконфигурировать ядро, как написано в handbook с учетом статьи
+про systemd.
+
+Скомпилируем ядро с модулями:
+#make && make modules_install
+
+Скомпилированное ядро переместим в /boot:
+#make install
+
+Установим initramfs - an initial ram-based file system:
+#emerge genkernel
+#genkernel --install initramfs
+
+Пересоберем систему с systemd и удалим udev, поскольку он входит в systemd:
+#emerge -avDN @world
+#emerge --deselect sys-fs/udev
+
+4. Конфигурирование системы.
+---------------------------
+
+Настроим монтирование ФС:
+#nano -w /etc/fstab
+-------------------
+/dev/sda2   /boot        ext2    defaults,noatime     0 2
+/dev/sda3   none         swap    sw                   0 0
+/dev/sda5   /            ext4    noatime              0 1
+/dev/sda6   /home        ext4    noatime              0 1
+
+Определим имя хоста
+#hostnamectl set-hostname <HOSTNAME>
+
+Настроим интернет
+Установим dhcp-клиент
+#emerge --ask net-misc/dhcpcd
+
+Узнаем название интерфейса
+#ifconfig
+
+Опустим интерфейс
+#ip link set enp14s0 down
+
+Создадим шаблон для профиля
+#cd /etc/netctl
+#cp examples/ethernet-dhcp eth_net
+
+Отредактируем профиль
+#nano -w  eth_net
+
+Стартанем профиль и добавим его в автозагрузку
+#netctl start eth_net
+#netctl enable eth_net
+
+Создадим пароль рута:
+# passwd
+
+5. Конфигурирование grub:
+# emerge --ask sys-boot/grub # установим grub2
+# emerge -av sys-fs/ntfs3g # поддержка NTFS
+# emerge -av sys-boot/os-prober # для того, чтобы grub нашел винду
+# grub2-install /dev/sda
+
+# nano -w /etc/default/grub
+-------------------------------
+# Append parameters to the linux kernel command line
+GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
+
+Генерируем конфиг
+# grub2-mkconfig -o /boot/grub/grub.cfg
+# Grub должен найти: vmlinuz, initramfs, виндовс
+
+7. Перезагрузка системы.
+Выйдем из chroot и отмонтируем разделы
+# exit
+cdimage ~# cd
+cdimage ~# umount -l /mnt/gentoo/dev{/shm,/pts,}
+cdimage ~# umount /mnt/gentoo{/boot,/sys,/proc,}
+cdimage ~# reboot
+
+
+8. Окончание установки.
+
+Залогинимся под root и создадим пользователя:
+#useradd -m -G users,wheel,audio,cdrom,usb   -s /bin/bash mikhail
+
+Удалим stage3:
+#rm /stage3-*.tar.bz2*
+
+6. Установка иксов
+------------------
+nano -w /etc/portage/make.conf
+-------------------------------
+INPUT_DEVICES="evdev mouse keyboard synaptics"
+VIDEO_CARDS="intel nvidia"
+
+Просчитаем зависимости:
+# emerge --ask --verbose --pretend x11-base/xorg-drivers
+
+После того, как расставим необходимые USE-флаги:
+# emerge --ask x11-base/xorg-server
+
+#env-update
+#source /etc/profile
+
+Если вылезает сообщение: file /home/GoinEasy9/.serverauth.1892 does not exist
+# nano -w /usr/bin/startx
+enable_xauth=0
+
+Если при запуске вылезает myhostname.unknown_domain.
+# nano -w /etc/hosts
+127.0.0.2        machinename.domain         machinename
+Вместо machinename подставить имя хоста
+
+
+7. Поддержка NVIDIA
+-------------------
+Установка bumblebee: http://blog.fkmclane.net/nvidia-optimus-with-bumblebee-in-gentoo/
+В ядре включить поддержку модулей (скорее всего она уже включена). Драйвер будет установлен как МОДУЛЬ. Включать в ядре поддержку nvidia и гибдридной графики НЕ НАДО!!

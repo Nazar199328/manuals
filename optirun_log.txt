@@ -1,0 +1,31 @@
+misha@Aspire-V3-771:~$ lspci | grep VGA
+00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+01:00.0 VGA compatible controller: NVIDIA Corporation GK107M [GeForce GT 650M] (rev ff)
+
+misha@Aspire-V3-771:~$ vblank_mode=0 VGL_READBACK=sync optirun glxgears
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+16108 frames in 5.0 seconds = 3221.481 FPS
+17613 frames in 5.0 seconds = 3522.503 FPS
+17669 frames in 5.0 seconds = 3533.766 FPS
+17568 frames in 5.0 seconds = 3513.356 FPS
+17734 frames in 5.0 seconds = 3546.761 FPS
+17513 frames in 5.0 seconds = 3502.578 FPS
+
+misha@Aspire-V3-771:~$ vblank_mode=0 glxgears
+ATTENTION: default value of option vblank_mode overridden by environment.
+ATTENTION: default value of option vblank_mode overridden by environment.
+33725 frames in 5.0 seconds = 6744.996 FPS
+33392 frames in 5.0 seconds = 6678.360 FPS
+33391 frames in 5.0 seconds = 6678.094 FPS
+33480 frames in 5.0 seconds = 6695.865 FPS
+33862 frames in 5.0 seconds = 6772.267 FPS
+33970 frames in 5.0 seconds = 6793.955 FPS
+34133 frames in 5.0 seconds = 6826.500 FPS
+33579 frames in 5.0 seconds = 6715.698 FPS
+33274 frames in 5.0 seconds = 6654.657 FPS
+

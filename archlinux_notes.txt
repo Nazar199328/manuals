@@ -1,0 +1,753 @@
+vim: set filetype=sh :
+
+Команды bash (zsh)
+-------------------
+$ file имя_файла            # Информация о файле:
+$ wc file.txt				# Подсчитать количество байт, слов, строк в файле
+$ wc -l <filename>			# вывести количество строк
+$ wc -c <filename>			# вывести количество байт
+$ wc -m <filename>			# вывести количество символов
+$ wc -L <filename>			# вывести длину самой длинной строки
+$ wc -w <filename>			# вывести количество слов
+$ ls -1A | wc -l			# Число файлов в директории
+$ find ~ -name "*.txt"		# Поиск файлов в папке ~ и вложенных по шаблону
+$ echo "hello.txt"  | xargs touch  # xargs перенаправляет вывод с одной команды в качестве опций другой
+^old^new^ # в строке появится предыдущая команда, с заменой слова old на new
+$ grep "pattern" file.txt      # Ищет строчку, в которой есть pattern в файле file.txt
+$ grep -e pattern -e pattern2 file.txt      # Ищет строчку, в которой есть pattern и одновременно pattern2 в файле file.txt
+$ grep pattern file.txt file2.txt      # Ищет строчку, в которой есть pattern в файле file.txt и file2.txt. Также можно использовать шалоны, например *.txt
+echo -e '\a' #Издать звук или писк в терминале. Чтобы это работало, в alsamixer нужно unmute канал beep
+
+$ uname -a  # инфа об ОС, версия ядра, имя хоста и т.д
+$ lspci     # инфа о pci-устройствах
+$ lscpu     # инфа о процессоре
+
+$ sudo useradd -G group user # Добавление вновьсозданного пользователя user в группу group
+$ sudo usermod -a -G group user # Добавление существующего пользователя user в группу group
+$ sudo chown rob:developers strace.log # Поменять владельца для strace.log в 'rob' и идентификатор группы в 'developers'.
+$ sudo chown -R us base # Поменять имя владельца для base на us и выполнить это рекурсивно.
+
+Корзина Trash
+-------------
+ls -l .local/share/Trash/files # файлы корзины
+$ gvfs-trash text33.txt # помещение файла в корзину
+
+Шрифт в текстовой консоли и локаль, имя хоста, установка даты времени
+----------------------------------------------------------------------
+$ showconsolefont # Посмотреть шрифт в текстовой консоли
+$ setfont Cyr_a8x16 # Установка консольного шрифта
+$ setfont ter-v16n # Установка консольного шрифта
+$ vim /etc/vconsole.conf # создать файл и а нем написать FONT=Cyr_a8x16 или, установив Terminus FONT=ter-v16v. Поиск шрифта происходит в /usr/share/kbd/consolefonts.
+$ sudo localectl set-keymap ruwin_alt_sh-UTF-8 # клавиши для переключение раскладки клавиатуры
+$ sudo localectl set-locale LANG=en_US.utf8 # установка локали системы
+# Для видеокарты Intel при загрузке системы подключается drm-модуль, например i915 для intel, его старт приводит к появлению нового устройства фреймбуфера (или замене старого на новый) (/dev/fb0 и т.д.), и повторной инициализации консоли со сбросом шрифта. Нужно обеспечить старт drm-модуля заведомо раньше загрузки шрифта. Второе проще всего сделать, добавив ваш drm-модуль в строку MODULES= конфига /etc/mkinitcpio.conf и перегенерировав образ initramfs:
+MODULES="i915"
+$ sudo mkinitcpio -p linux
+$ sudo systemctl set-locale LANG=en.US.UTF-8 # Установка локали (язык системы)
+$ sudo hostnamectl set-hostname aser # имя хоста
+$ man timedatectl # установка даты/времени. Coordinated Universal Time (UTC) берется из биоса. Если оно неправильно установлено, надо поправить в биосе
+$ timedatectl status # текущие настройки даты/времени
+
+#Initrd (сокращение от англ. Initial RAM Disk, диск в оперативной памяти для начальной инициализации) — временная файловая система, используемая ядром Linux при начальной загрузке. Initrd обычно используется для начальной инициализации перед монтированием «настоящих» файловых систем.
+# initramfs - это начальная файловая система в оперативной памяти
+Копирование
+-----------
+$ cp file1 file2            # Копирование содержимого file1 в file2
+$ cp -L file1 file2         # Не дает скопировать символьную ссылку
+$ cp file1 ~/Documents/     # Копирование file1 в директорию Documents
+$ cp ~/Documents/file1      # Копирование file1 из ~/Documents в текущую директорию
+$ cp -r ~/Documents/* notes/    # Копирование всех файлов и подкаталогов директории Documents в директорию notes
+$ cp -p file1 file2     # Копирование с сохранением атрибутов файла
+
+Запуск приложений
+------------------
+$ ./a.out # запуск приложения не из директории, указанной в PATH
+$ ./a.out < data.txt # перенаправление ввода
+$ ./a.out > res.txt # перенаправление вывода
+$ ./a.out < data_eq.txt > res.txt # перенаправление ввода и вывода
+$ echo $? # возвращает в операционную систему статус выхода последней запущенной программы
+
+Архивы
+------
+$ tar -cvzf files.tar.gz ~/files   # Запаковка в архив.
+$ tar -cvjf files.tar.bz2 ~/files  # где: с — оператор, показывающий машине на то, что мы будем создавать архив; f — ключ для упаковки содержимого в файл; v — заставляет печатать вам на экран то, чем в данный момент занимается машина; если хочется больше информации можно писать vv; p — абсолютное имя; z — используется архиватор gzip (расширением .tgz или .tar.gz); j — использование архиватора bzip2 (расширением .tbz2 или .tar.bz2); t — показать список содержимого
+
+$ tar -xvf /path/to/archive.tar.bz2 				# Распаковка архива:
+$ tar -xvf archive.tar.bz2 -C /path/to/folder 		# Можно указать альтернативное место для распаковки.
+$ tar -xpJf tor-browser-linux64-3.6.3_en-US.tar.xz # Распаковка *.tar.xz
+
+$ tar -ztf archive.tar.gz 			# Просмотр содержимого архива .tar.gz
+$ tar -jtf archive.tar.bz2 			# Просмотр содержимого архива .tar.bz2
+
+$ unzip ./folder.zip -d ./folder	# Распаковать folder.zip в папку folder
+
+$ set  # Полный список активных переменных среды (environment variables). Как глобальных, так и локальных
+$ printenv   # Просмотр глобальный переменных окружения. Рекомендуется обозначать прописными буквами.
+$ type command # Встроена ли команда command в оболочку
+
+Работа с архивами 7z, zip.
+-------------------------
+$ sudo pacman -S p7zip
+$ 7za 								# Справка по ключам
+$ 7z a Mykatana.7z Mykatana 		# Запаковка архива с указанием директории
+$ 7z x -oMykatana Mykatana.7z 		# Распаковка архива в папку
+$ 7z a -tzip Mykatana.zip Mykatana 	# Запаковка архива zip
+$ 7z x Mykatana.zip 				# Распаковка архива с параметрами по умолчанию.
+$ 7z x file.7z path/file            # Извлечь один файл из архива
+
+# <Команды>
+# a: Добавить файлы в архив
+# d: Удалить файлы из архива
+# e: Извлечь файлы из архива
+# l: Показать список файлов в архиве
+# t: Тестирование целостности архива
+# u: Обновить файлы в архиве
+# x: Извлечь файлы из архива с путями
+
+$ rm -rv Notes  # Удаление файлов/папок; -r - удаление с рекурсией (для папок); -v - выводить информацию о выполняемых действиях
+
+$ pwd   # Абсолютный путь до текущей папки
+
+$ application > /dev/null 	# Перенаправляет stdout в /dev/null
+$ application 2> /dev/null	# Перенаправляет stderr в /dev/null
+$ application 2>&1			# Перенаправляет stderr в stdout
+$ application &> /dev/null	# Оба потока в null
+
+$ du -sh Documents 		# размер папки
+$ du -sh *				# размер всех вложенных папок и файлов в текущем каталоге
+$ du -sh * .* 			# размер всех вложенных папок и файлов включая скрытые; -s - суммировать данные; -h - размеры в МБ, ГВ с суффиксами; -с - вывести общий итог
+
+$ du -s .* * | sort -nr		# Вывести тот же список с сортировкой по размеру файлов; -n - сортировка по числовым значениям строк; -r - вывести данные в порядке убывания этих числовых значений
+
+$ cat > file.txt 		# Записывает текст в file.txt замещением.
+$ cat >> file.txt 		# Добавляет текст в конец файла. Для выхода из cat нажать Enter, затем Ctrl-D
+
+$ ps -efH       # Мониторинг процессов; -e - показывать все процессы; -f - отображать листинг в полном формате (полная коммандная строка); -H - отображать процессы в иерархическом формате; -l - вывод в полном формате (больше столбиков). Cтолбик S - состояние процесса D — состояние ожидания; R — процесс выполняется процессором или стоит в очереди на выполнение; S — состояние «сна»; T — выполнение процесса приостановлено; Z — состояние «зомби». Процессы указанные в квадратных скобках [ ] – это потоки ядра, а не настоящие процессы, исполняющие специальные функции.
+
+$ pidof [name]  # Она выводит все идентификаторы процессов с данным именем.
+
+$ pstree	# Иерархия процессов пользователя:
+$ top   	# Процессы в динамике; q - выход из программы; с - вывод в полном формате (полная командная строка); m - отображение строчек информации mem и swap; u - процессы конкретного пользователя; f - отобразить/скрыть столбики; M (shift-m) - сортировка по загрузке ОП; P (shift-p) - сортировка по загрузке ЦП; N (shift-n) - сортировка PID (идентификатор процесса); k - уничтожить процесс (аналогично kill)
+
+$ sudo pacman -S htop 	# Процессы в динамике
+$ htop					# Процессы в динамике
+
+$ less file.txt			# Постраничный просмотр файла. Подкоманды команды less: h - отображение справки; Space - отображение следующего экрана текста; j - построчное перемещение вниз; k - построчное перемещение вниз; z - отображение следующего экрана текста; f - отображение следующего экрана текста; d - показ следующей половинки экрана; Enter - отображение еще одной строчки из файла; b - отображение предудущего экрана; /expression - поиск текста в файле с помощью выражения expression (регистр учитывается!); n - поиск следующего вхождения expression (регистр учитывается!); N - поиск предыдущего вхождения expression (регистр учитывается!); q - выход из less
+
+$ iconv -f ISO-8859-15 -t UTF-8 -o output.txt original_file.txt # Конвертация текстового файла из ISO-8859-15 в utf-8.
+$ iconv -f WINDOWS-1251 -t UTF-8 -o output_file.txt original_file.txt
+$ echo abc ß α € àḃç | iconv -f UTF-8 -t ASCII//TRANSLIT # Конвертация из UTF-8 в ASCII с транслитерацией, если возможно:
+$ split -b 1000000000 file.txt # Разбить файл на куски размером 1Гб
+
+-------
+Systemd
+-------
+$ ls /etc/systemd/system/ #здесь лежат все юнит-файлы
+$  ls /etc/systemd/system/multi-user.target.wants #здесь лежат симлинки на те юниты, которые дожны быть прочитаны при загрузке операционной системы
+
+$ systemctl --full	# Список всех запущенных демонов
+$ systemctl list-unit-files     # Список всех установленных демонов
+$ sudo systemctl restart bumblebeed		# Пререзапустить демон bumblebeed:
+$ systemctl --failed    # Список ошибок
+$ systemctl cat network-wireless@mikio.service #Посмотр запущенных юнитов
+$ sudo systemctl daemon-reload  # Перезагрузить systemd для поиска новых или измененных юнитов
+
+$ systemctl status  # Дерево всех запущенных демонов
+$ systemd-cgls      # Дерево контрольных групп
+$ systemd-cgtop     # загрузка процессора и ОП для контрольных групп.
+# Если информация не отображается, необходимо скопировать system.conf в папку system.conf.d чтобы не портить исходный конфиг:
+$ sudo cp /etc/systemd/system.conf /etc/systemd/system.conf.d/my_systemd.conf
+# В конфиге раскомментировать строки и сменить значения на yes:
+DefaultCPUAccounting=yes
+DefaultBlockIOAccounting=yes
+DefaultMemoryAccounting=yes
+# После чего сделать systectl daemon-reexec и перезагрузить ОС
+
+# При ошибке: hwdb.bin does not exist, please run udevadm hwdb --update
+# В файл vim /etc/mkinitcpio.conf добавить строчку:
+FILES="/etc/udev/hwdb.bin"
+# после чего запустить $ sudo mkinitcpio -p linux
+# https://bbs.archlinux.org/viewtopic.php?id=189536&p=1
+
+Создание загрузочной флешки
+---------------------------
+$ sudo fdisk -l или lsblk
+$ umount /dev/sdb - если примонтирована
+
+$ sudo mkfs.vfat /dev/sdb -I
+
+Если нет mkfs.vfat установить пакет dosfstools
+$ which mkfs.vfat - найдем этот метод форматирования
+
+$ sudo dd if=образ.iso of=/dev/sdb # создание загрузочной флешки. Перед записью образа флешку надо отмонтировать. Все данные будут стерты
+
+# pacman -S slim						# Экранный менеджер slim
+# systemctl enable slim.service 		# Добавить slim в автозагрузку.
+$ cp /etc/skel/.xinitrc ~/.xinitrc		# Создание пользовательского .xinitrc
+
+
+$ sudo mkfs.ext4 /dev/sda1		# Форматирование раздела/диска (make file system)
+
+$ sudo pacman -S xf86-input-keyboard   # Драйвер для клавиатуры (нужен для Скайрима под вайном)
+$ sudo pacman -S xf86-input-synaptics   # Драйвер для тачпада
+$  /usr/bin/synclient TouchpadOff=1     # Отключает тачпад
+$  /usr/bin/synclient TouchpadOff=0     # Включает тачпад
+
+Настройка звука
+---------------
+$ sudo pacman -S alsa-lib alsa-utils alsa-oss alsa-plugins
+$ alsamixer                     # Псевдографический интерфейс драйвера
+$ amixer get Master             # Какая-то общая громкость
+$ amixer get Speaker            # Колонки
+$ amixer set Master 90% unmute	# Регулирование громкости из консоли; unmute - включить, если звук отключен
+$ amixer set PCM 95% unmute		# Регулирование громкости из консоли
+$ amixer set Master 5+   		# Регулирование громкости из консоли
+$ speaker-test -c 2             # Тест колонок
+$ amixer -q set Master mute     # Отключение громкости; ключ -q подавляет вывод в теринал
+
+$ aplay -l # список подклююченных аудио-устройств
+$ aplay -D plughw:0,3 /usr/share/sounds/alsa/Front_Center.wav  #звук на card 0, device 3
+
+Регулировка яркости
+-------------------
+$ xbacklight -set 60  # Регулировка яркости в консоли
+$ xbacklight -inc 10  # Увеличение яркости
+$ xbacklight -dec 10  # Уменьшение яркости
+
+При воспроизведении видео при ошибке:
+vaapi generic error: Failed to initialize the VAAPI device
+установить libvdpau-va-gl
+
+Монтирование флешек
+-------------------
+Добавить в /etc/fstab:
+/dev/sdb1 /mnt/usbstick vfat user,fmask=0133,dmask=0022,noauto,noatime,flush 0 0
+# где
+# user - позволить любому пользователю монтировать фс
+# users - позволить любому пользователю из группы users монтировать фс
+# noauto - монтировать только по требованию
+# noatime - отключить возможность получения информации о последнем доступе/изменении файла.
+# fmask - маска прав доступа для файлов (обязательны к указанию!) (0777 - 0133 = 0644)
+# dmask - маска прав доступа для директорий (тоже неплохо указать)
+# umask - для всех
+
+Монтирование ntfs
+-----------------
+$ yaourt -S ntfs-3g-fuse
+$ sudo gpasswd -a username disk 	# Добавим пользователя в группу disk.
+$ sudo chown user /mnt/mountpoint	# Сделаем пользователя владельцем точки монтирования.
+# Добавим строчку в /etc/fstab:
+/dev/sdb1 /mnt/hddusb ntfs-3g user,uid=1000,fmask=0133,dmask=0022,noauto,noatime,flush  0 0
+
+# Если этого будет недостаточно, установить setuid бит:
+$ sudo chmod u+s /usr/bin/ntfs-3g
+
+Pacman
+------
+# Конфигурационный файл /etc/pacman.conf
+# Для установки 32-bit приложений раскомментировать строчки:
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+# Список серверов находится в файле /etc/pacman.d/mirrorlist. Необходимо раскомментировать необходимые сервера.
+
+$ sudo pacman -Syy				# Обновление данных о пакетах из репозиториев (сделать после редактирования pacman.conf):
+$ sudo  pacman -Syu				# Обновление всех пакетов:
+$ yaourt -Syua --noconfirm	# Обновление всех пакетов из оф. репозиториев и AUR
+# -S - установка/обновление;
+# -y - синхронизация из репозиториев списков пакетов;
+# -u - обновление пакетов, установленных из репозиториев указанных в pacman.conf;
+# -a - обновление пакетов, установленных из AUR
+# --noconfirm - не спрашивать подтверждение.
+
+$ sudo pacman -S <package_name> 	# Добавление/обновление пакета.
+$ sudo pacman -Q <package_name>		# Проверка, установлен ли пакет.
+$ pacman -Qi <package_name>			# Информация об установленном пакете.
+$ pacman -Qo /путь/к/файлу          # Какому пакету проинадлежит файл
+$ pacman -Ql <package_name>			# Список файлов пакета.
+$ pacman -Si <package_name>			# Информация о неустановленном пакете.
+$ sudo pacman -R <package_name>		# Удаление пакетов.
+$ sudo pacman -Rs <package_name>	# Удаления пакетов со всеми зависимостями, не используемыми другими установленными пакетами.
+$ sudo pacman -Qdtq 				# Отображение пакетов, которые больше не требуются.
+$ pacman -Ss <expression>			# Поиск пакетов в репозиториях по регулярному выражению.
+
+Для отключения подписей пакетов в файле /etc/pacman.conf добавить строчку изменить параметр SigLevel:
+
+SigLevel    = Never
+#SigLevel    = Required DatabaseOptional
+
+И обновить pacman:
+$ sudo pacman -Syy
+
+$ du -sh /var/cache/pacman/*	# Размер кэша пакмана
+$ sudo pacman -Sc				# Удаление из кэша не установленных на данный момент пакетов.
+$ sudo pacman -Scc				# Удаление из кэша вообще всех пакетов:
+
+Откат к предыдущей версии пакета
+--------------------------------
+Ищем пакет в кэше:
+$ ls -l /var/cache/pacman/pkg | grep pkgname
+Где вместо pkgname пишем имя искомого пакета (или его часть)
+Если он там есть, то:
+$ sudo pacman -U /var/cache/pacman/pkg/pkgname-olderpkgver.pkg.tar.gz.
+Если нужный пакет был скачан вручную, то понадобится указать полный путь к пакету.
+
+Для запрета обновления пакета, добавить название пакета в строку "IgnorePkg" файла /etc/pacman.conf. IgnorePkg = package1 package2 ...
+Это запретит pacman, при выполнении --sysupgrade, устанавливать обновления для выбранных пакетов.
+
+$ makepkg -si 	# Установка скаченного и разархивированного пакета
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg		# После этого переконфигурируем GRUB.
+
+Иконки и виджеты
+-----------------
+Кнопки для запуска приложений - файлы с расширением .desktop, лежат в /usr/share/applications
+Установленные темы иконок лежат по адресу /usr/share/icons
+
+$ startx #запуск X сервера из текстовой консоли, по умолчанию используется xinitrc
+$ startx /путь_до_приложения # запуск приложения в отдельных иксах. .xinitrc при этом не выполняется
+
+Где находится корзина: /home/mikio/.local/share/Trash
+
+$ sudo yaourt -S tor-browser-en 	# Для смены IP-адреса: Кнопка с луковицей -> New Identity
+
+Openbox
+-------
+lxappearance - настройка виджетов и окон
+obmenu - настройка меню
+obconf- настройка вида окон и меню
+
+openbox-session
+
+Перед строчкой exec openbox-session
+
+Для регулировки громкости дописать в rc.xml:
+
+    <!-- Keybindings for volume control -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>amixer set Master 5%+ unmute</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+          <command>amixer set Master 5%- unmute</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer set Master toggle</command>
+      </action>
+    </keybind>
+
+------------------
+Установка Awesome
+------------------
+$ sudo pacman -S awesome
+
+В файле .xinitrc:
+exec awesome
+
+$ mkdir -p ~/.config/awesome/
+$ cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+$ cp -r /usr/share/awesome/* ~/.config/awesome/
+
+-------------------
+Виджеты в Awersome
+-------------------
+$ yaourt -S lain-git
+$ sudo pacman -S vicious
+Виджеты можно найти здесь: http://awesome.naquadah.org/wiki/Vicious
+
+$ yaourt -S xorg-xprop		# Пакет, для опередения класса приложения.
+$ xprop | grep "CLASS" 		# Узнать класс приложения.
+
+
+$ pacman -R xxkb # Виджет раскладки клавиатуры
+
+---------
+Bumblebee
+---------
+Если появляется ошибка "Failed to initialize the NVIDIA GPU at PCI:1:0:0 (GPU fallen off the bus)" необходимо добавить rcutree.rcu_idle_gp_delay=1 в параметры инициализации ядра
+
+В файл /etc/default/grub в GRUB_CMDLINE_LINUX_DEFAULT необходимо дописать
+rcutree.rcu_idle_gp_delay=1
+
+Должно получиться:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet rcutree.rcu_idle_gp_delay=1"
+
+После этого выполнить следующее:
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+$ optirun -b none nvidia-settings -c :8	# Запуск графического интерфейса NVIDIA:
+$ sudo systemctl enable bumblebeed.service	# Для отключения питания неработающей дискретной видеокарты установить bbswitch и добавить демон bumblebee в автозагрузку:
+
+$ nvidia-smi 						# Информация о GPU без использования X
+$ nvidia-smi -q -d TEMPERATURE 		# Только температура
+$ nvidia-smi -q -d TEMPERATURE | grep "GPU Current" | cut -c39-40 		# Температура для коньков. Nvidia-smi не требует запуска иксов, однако если работает bbswich, неработающая дискретная видеокарта отключена, поэтому либо использовать optirun.Но из-за этого видеокарта и процессор будут дополнительно нагружаться и греться, поэтому лучше удалить bbswitch.
+
+$ hddtemp /dev/sda      # Температура жесткого диска
+$ sudo chmod a+s /usr/bin/hddtemp   # Чтобы запускать hddtemp без рута
+$ sudo systemctl mask hddtemp.service # Не стартовать демон hddtemp
+
+Libreoffice
+-----------
+$ sudo pacman -S libreoffice-gnome 	# Для интеграции в офис gtk темы
+
+---------------------------
+Установка и настройка WINE
+---------------------------
+
+$ sudo pacman -S lib32-alsa-lib 	# Установим 32-bit библиотеку для alsa:
+$ sudo pacman -S wine				# Установим сам WINE (здесь он 32-битный):
+$ WINEARCH=win32 WINEPREFIX=~/.wine_steam winecfg	# Сконфигурируем префикс для steam:
+$ sudo pacman -S winetricks			# Установим winetricks:
+$ WINEARCH=win32 WINEPREFIX=~/.wine_steam winetricks -q msxml3 dotnet40 corefonts	# Установим шрифты и .NET Frameworks 4.0; -q - не задавать никаких вопросов
+$ winetricks --help					# Значения ключей winetricks
+$ sudo yaourt -S zenity-gtk2		# GUI для winetricks
+$ WINEARCH=win32 WINEPREFIX=~/.wine_steam winetricks -q d3dx9_36 d3dx9_42 vcrun2008 vcrun2010 xact		# Установим библиотеки:
+
+winetricks -> Select the default wineprefix -> Shange setting
+glsl=disabled
+sound=alsa
+videomemorysize=2048
+
+Установим steam:
+$ WINEARCH=win32 WINEPREFIX=~/.wine_steam winetricks --no-isolate steam
+
+Информация о системе
+--------------------
+$ sudo pacman -S inxi
+$ sudo pacman -S lm-sensors
+$ sudo pacman -S hddtemp
+$ sudo pacman -S xorg-xdpyinfo
+$ yaourt -S glxinfo
+
+В файл /etc/default/grub в GRUB_CMDLINE_LINUX необходимо дописать:
+acpi_enforce_resources=lax
+
+Должно получиться:
+GRUB_CMDLINE_LINUX_DEFAULT="quiet rcutree.rcu_idle_gp_delay=1"
+GRUB_CMDLINE_LINUX="acpi_enforce_resources=lax"
+
+После этого внесем изменения в конфиг GRUB:
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+$ sudo sensors-detect
+
+Информация с датчиков: sensors
+
+Полная информация о системe: $ inxi -F
+Температура жесткого диска: $ inxi -Dx
+Рекомендации (что еще поставить): inxi --recommends
+Данные о видеоадаптерах: inxi -G
+
+Эмулятор терминала rxvt-unicode
+-------------------------------
+$ sudo pacman -S rxvt-unicode
+$ xrdb -merge ~/.Xresources		# Применение конфига .Xresources
+$ echo -e "\e[3mitalic\e[m"     # Проверка, работает ли в консоли курсивный шрифт. Шрифт для курсива нужно задать в .Xresources
+
+URxvt*letterSpace: -1           # Написать обязательно, иначе шрифт слишком широкий
+
+$ pacman -S urxvt-perls		# Для настройки прозрачности. Это ставить обязательно! Это набор плагинов, также необходимых для настройки буферов обмена. Они лежать в папке /usr/lib/urxvt/perl
+
+В .Xresources добавить строчки:
+
+! Истинная прозрачность. В скобках [] прозрачность далее цвет фона
+URxvt.depth: 32
+URxvt.background: [60]#000000
+
+! Подгружаем плагины, включая clipboard
+URxvt.perl-ext-common:  default,matcher,url-select,clipboard
+
+! Включение хоткеев для clipboard
+URxvt.keysym.Control-Insert: perl:clipboard:copy
+URxvt.keysym.Shift-Insert: perl:clipboard:paste
+
+$ urxvt -pe tabbed # Запуск терминала с табами; Shift-<стрелка вниз> открытие нового таба; Shift-<левая/правая стрелка> переключение между табами; Ctrl-<левая/правая стрелка> передвижение таба влево/вправо
+В файле ресурсов ~/.Xresources можно добавить автоматическую загрузку этого плагина:
+URxvt.perl-ext-common: default,tabbed
+
+Для поиска в терминале набрать Alt+s
+
+Для регулирования размера шрифта хоткеями  добавить в .Xresources следующие строки:
+URxvt.keysym.C-1: command:\033]710;-xos4-terminus-medium-r-normal--12-*-*-*-*-*-iso10646-1\007\033]711;-xos4-terminus-bold-r-normal--12-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-2: command:\033]710;-xos4-terminus-medium-r-normal--14-*-*-*-*-*-iso10646-1\007\033]711;-xos4-terminus-bold-r-normal--14-*-*-*-*-*-iso10646-1\007
+URxvt.keysym.C-3: command:\033]710;-xos4-terminus-medium-r-normal--16-*-*-*-*-*-iso10646-1\007\033]711;-xos4-terminus-bold-r-normal--16-*-*-*-*-*-iso10646-1\007
+
+Powerline
+----------
+$ yaourt -S python-powerline-git    # Для красивых стрелочек в консоли и gvim установить Powerline. Или напрямую отсюда: https://github.com/Lokaltog/vim-powerline
+$ yaourt -S powerline-fonts-git     # Для красивых стрелочек в консоли и gvim установить шрифты Powerline. Или отсюда: https://github.com/powerline/fonts
+let $PYTHONPATH='/usr/lib/python3.4/site-packages' # это прописать в конфиге gvim
+
+Красивая настройка bash: http://bashrcgenerator.com/
+----------------------------------
+$ sudo pacman -S zsh		# Установка и настройка оболочки zsh
+$ zsh						# Проверим что, zsh установился.Далее нажать q
+$ yaourt -S oh-my-zsh-git	# Темы для оболочки
+$ mkdir .oh-my-zsh && cp -rv /share/oh-my-zsh/themes .oh-my-zsh # Копируем темы в пользовательскую директорию.
+$ cp -v /usr/share/oh-my-zsh/zshrc .zshrc	# Копируем конфиг оболочки
+В файле .zshrc указываем тему, например duellj:
+ZSH_THEME="duellj"
+
+$ chsh -s $(which zsh)		# Выбираем zsh оболочкой по умолчанию.
+$ echo $SHELL				# Оболочка по умолчанию
+
+Midnight Commander
+------------------
+Скины лежат здесь: /usr/share/mc/skins
+$ mc -S xoria256 # Запуск со  скином, например xoria256:
+Или найти в конфиге ~/.config/mc/ini переменную skin и заменить default на новое значение:
+skin=xoria256
+Для прозрачного фона присвоить значение base_color:
+base_color=normal=white,default:marked=magneta,default
+
+Системные переменные
+---------------------
+$ printenv						# Список системных переменных:
+$ export EDITOR=/usr/bin/nano 	# Задание текстового редактора по умолчанию
+
+Wine Steam & Awesome
+--------------------
+Для исправления бага с "летающими" окнами, добавить в rc.lua
+
+{ rule = { class = "Wine" },
+      properties = { border_width = 0, floating = true } },
+
+$ sudo pacman -S xosd			# Пакет для измерения fps
+
+$ sudo pacman -S zathura-djvu zathura-pdf-poppler	# Просмотр документов pdf, djvu, pc
+
+Настройка браузера Firefox
+--------------------------
+Для изменения цветовой гаммы использовать аддон stylish
+Для детальной настройки внешнего вида установить дополнение Classic Theme Restorer
+Для того, чтобы видео на youtube всегда воспроизводилось в высоком качестве, установить плагин YouTube HD Plus
+Для блокировки рекламы Adblock Plus
+
+$ yaourt -S yandex-disk				# Сервис для Яндекса
+$ yandex-disk setup					# Начальная настройка яндекса
+$ systemctl --user enable yandex-disk.service 	# Добавления яндекса в автозагрузку
+$ yandex-disk start					# Запустить демон
+$ yandex-disk stop					# Остановить демон
+$ yandex-disk status		    	# Статус демона:
+$ yandex-disk publish Yandex.Disk/image.png		# Опубликовать файл.
+$ yandex-disk unpublish Yandex.Disk/image.png	# Отменить публикацию.
+$ yandex-disk sync		# Синхронизировать папку и выйти из демона.
+
+Настройка браузера Links
+------------------------
+Для отображения русского языка: Esc -> Setup -> Character -> Unicode UTF-8
+Затем сохранить настройки:Esc -> Setup -> Save Options
+$ xlinks -g #запуск links в графическом режиме
+
+Настройка браузера Lynx
+-----------------------
+Настройки открываются клавишей "о". Поставить крестик в Save option to disk.
+Выставить следующие настройки:
+Display and Character Set
+  Use locale-based character set(!): [OFF]
+  Use HTML5 charset replacements(!): [OFF]
+  Display character set            : [UNICODE (UTF-8)________________]
+  Assumed document character set(!): [utf-8___________]
+  Raw 8-bit (!)                    : [OFF]
+  X Display (!)                    : :0.0_______________________
+
+LaTeX
+-----
+$ sudo pacman -S texlive-most texlive-langcyrillic	# Ставим все необходимые пакеты и языковой пакет для русского языка.
+$ pdflatex file.tex			# Компиляция в .pgf.
+$ htlatex file.tex 			# Преобразование .tex в .html:
+
+Создание скриншотов.
+--------------------
+$ sudo pacman -S scrot
+$ scrot -cd3 file.png		# -cd3 - досчитать до трех и сделать скрин. Сохранить скриншот в file.png
+
+Установка принтера
+------------------
+$ sudo pacman -S cups ghostscript gsfonts gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree foomatic-filters	# Пакеты для принтера.
+$ systemctl enable cups.service		# Добавим демон в автозагрузку
+$ systemctl start cups.service		# Стартанем демон
+$ sudo dmesg			# Включим принтер и проверим, обнаружен ли он ядром.
+$ firefox http://localhost:631		# Далее откроем веб-интерфейс в браузере. Далее Add printers and classes -> Add printer. При запросе имени пользователя и пароля нужно будет войти в качестве root. Убедитесь в правильности настроек, нажав на кнопку Print Test Page (Печать тестовой страницы) в выпадающем меню Maintenance (Обслуживание).
+$ sudo pacman -S cups-pdf			# Установка виртуального pdf-принтера. В веб-интерфейсе Administration -> Add Printer. Select CUPS-PDF (Virtual PDF), choose for the make and driver: Make:	Generic; Driver:	Generic CUPS-PDF Printer. Созданные PDF-документы можно найти в var/spool/cups-pdf. Обычно, более удобно такие документы добавлять в домашнюю директорию пользователя. В файле /etc/cups/cups-pdf.conf найдите и строку:#Out /var/spool/cups-pdf/${USER} и приведите ее к такому виду: Out /home/${USER}
+
+Для снятия принтера с паузы Maintenance -> Resume Printer
+
+$ lpr -P<printer> file.txt				# Распечатка файла из консоли
+$ lpr -PEPSON_Stylus_TX106 test1.sh		# Распечатка файла из консоли
+
+Как создать patch.
+------------------
+Сначала редактируем файл который нам надо.
+Потом создаем патч-файл командой diff исходный измененный > патч
+Затем чтобы пропатчить исходный файл:patch исходный -i патч -o пропатченный
+
+$ mplayer -tv driver=v4l2:width=320:height=240: -vo xv tv:// -geometry "95%:95%" -noborder -ontop      # Использование mplayer'a для скринкаста.
+
+urxvt -e <application>  # Запуск нового терминала с запущенным в нем приложением.
+echo "hello" | xclip    # Помещение потока в primary
+echo "hello" | xclip -sel clip     # Помещение потока в clipboard
+xclip -o                # Вывод содержимого primary
+xclip -o -sel clip      #Вывод содержимого clipboard
+
+
+Конфигурация X-сервера
+----------------------
+$ sudo pacman -S xorg-server xorg-server-devel  # установка X-сервера. Пакет  xorg-server-devel нужен для конфигурирования иксов с помощью драйвера nvidia
+$ sudo killall X            # Чтобы убить зависшие иксы: Ctrl+Alt+F1 и оттуда
+$ sudo Xorg :0 -configure   # отключаем slim.service и перезагружаемся без иксов. Затем эта команда. Генерируется файл /etc/X11/xorg.conf
+
+vk.com: Отмена отправки комментария нажатием enter. Достаточно навести курсор на кнопку «Отправить» и во всплывшем меню выбрать второй вариант. После этого клавиша <Enter> будет начинать новую строку, а для отправки нужно будет использовать комбинацию <Ctrl+Enter>
+
+$ yaourt xorg-xev   # Программа для определения скан-кода клавиш
+$ xev | grep "keycode"  # Определение скан-кода клавиши
+
+Настройка GTK
+------------
+В файл .xinitrc добавить строки:
+export XDG_CONFIG_HOME=$HOME/.config    #это папка, в которой будут конфиги и темы gtk+
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+
+Создать файл ~/.config/gtk-3.0/gtk.css следующего содержания:
+
+.window-frame, .window-frame:backdrop {
+  box-shadow: 0 0 0 black;
+  border-style: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.titlebar {
+  border-radius: 0;
+}
+
+Для работы lxappearance и screenfetch заменить файл gtkrc симлинком:
+$ ln -s ~/.gtkrc-2.0 ~/.config/gtk-2.0/gtkrc
+Для смены темы GTK 3.0 нужно перезапустить X-сервер
+Если не получается настроить GTK, установить гномовские темы и скопировать конфиги в папку .config:
+$ rm -r ~/.config/gtk-2.0/
+$ cp -r /usr/share/themes/Zukitwo/gtk-2.0/ ~/.config/
+$ rm -r ~/.config/gtk-3.0/
+$ cp -r /usr/share/themes/Zukitwo/gtk-3.0/ ~/.config/
+В lxappearance и obconf выбрать гномовскую тему
+
+Шрифты и темы
+-------------
+$ sudo yaourt -S otf-texgyre # Хороший набор шрифтов, включая helvetica
+$ sudo yaourt -S gtk-theme-murrine-collection # Хороший набор gtk2.0 тем
+$ sudo pacman -S numix-themes # Тема numix для gtk2.0 и gtk3.0
+$ sudo yaourt -S numix-icon-theme-git # Тема иконок numix
+
+Conky
+-----
+$ yaourt -S conky-lua conky-manager-bzr 	# Для начала отключить подписи пакетов, как написано выше
+
+i3wm
+-----
+$ sudo pacman -S i3-wm
+$ sudo yaourt -S dmenu-xft # dmenu с поддержкой XFT font. Можно использовать шрифты для иксов
+$ sudo yaourt -S i3lock # блокировка экрана
+$ sudo yaourt -S i3status # отображение панелей
+$ sudo yaourt -S ttf-fontawesome-git # FontAwesome, шрифт с иконкам. Отображение иконок в i3bar с conky
+
+Использование нескольких мониторов с i3wm
+-----------------------------------------
+$ xrandr -q     # Список доступных мониторов
+$ xrandr --output LVDS1 --mode 1600x900 --pos 1360x0 --output HDMI1  --mode 1360x768 --pos 0x0    # Настройка двух мониторов для i3
+$ xrandr --output HDMI1 --off     # Отключение дополнительного монитора
+
+$ echo $PAGER     # В какой программе отображается aka man. Также может быть задана $MANPAGER, если $PAGER не установлена
+
+$ test `xset -q | grep LED | gawk '{print $10}' | cut -c5` -eq 1 && echo "ru" || echo "en"   # Текущая раскладка клавиатуры
+$ xset -q | gawk 'BEGIN { a[1]="ru"; a[0]="en" } /LED/ { print a[substr($10,5,1)]; }'       # Текущая раскладка клавиатуры
+
+Управление питанием монитора
+----------------------------
+DPMS (Display Power Manager Signaling) — сигналы управления энергопотреблением дисплеев, технология, позволяющая управлять питанием монитора.
+xset -dpms # отключить dpms
+xset +dpms # включить dpms
+xset s off # отключает автоматическое выключение экрана
+xset s 300 # включает выключение экрана через 5 минут (в отличии от конфига тут указывается в секундах)
+xset dpms 100 200 300 # устанавливает время режима ожидания, спящего режима и отключения монитора (0 - значит отключено)
+xset dpms force standby # немедленно устанавливает экран или экраны в режим ожидания
+xset dpms force suspend # в режим сна
+xset dpms force off # выключает экран
+xset -q # посмотреть параметры
+
+xset -dpms; xset s off # отключить dpms и отключить автовыключение экрана
+
+http://www.rapidtables.com/web/color/RGB_Color.htm      # HTML-коды цветов
+
+$ yaourt -S tty-clock # часы в консоли
+$ sudo pacman -S alsi # еше один скринфетч.Настройки alsi находятся в файле .config/alsi/alsi.output
+
+$ sudo pacman -S acpi # выводит заряд батареи, температуру и т.д.
+$ mutt -s "Hello" email@gmail.com -a filename < ~/text.txt # отправка почтовых сообщений при помощи mutt; filename - прикрепленный файл; text.txt - текст сообщения
+
+$ gpg -r email@yandex.ru -e filename   # шифрование при помощи gpg; вместо filename имя шифруемого файла; указать email, использованный при генерации ключа
+$ gpg -d filename.gpg     # просмотр содержимого зашифрованного файла
+$ gpg --recv-keys 279D5C91    #пример добавления публичного ключа
+
+http://lmgtfy.com/ # Let me Google that for you / Давай я поишу в гугле вместо тебя
+
+Установка Cinnamon
+------------------
+$ sudo pacman -S cinnamon
+
+Настройка Network Manager
+-------------------------
+Нужно остановить юнит для netctl и запустить Network Manager
+$ sudo netctl stop netwy
+$ sudo netctl disable netwy
+$ sudo systemctl start NetworkManager
+$ sudo systemctl enable NetworkManager
+
+$ cinnamon-menu-editor # редактирование меню cinnamon
+# Горячие клавиши Cinnamon: Ctrl+Alt+Up - открывает Expo; Ctrl+Alt+стрелка вниз - экспонирует открытые окна с миниатюрами внизу; Ctrl+Alt+стрелки вправо/влево - переключает на смежное рабочее пространство; Ctrl+Alt+Shift+стрелки влево/вправо - перемещает активное окно в соседнюю рабочую область.
+
+Переустановка yaourt.
+---------------------
+sudo pacman-db-upgrade
+yaourt -R package-query yaourt
+
+curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz    # скачиваем пакет
+tar zxvf package-query.tar.gz   # извлекаем архив
+cd package-query
+makepkg -si # установка скаченного пакета
+cd ..
+curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
+tar zxvf yaourt.tar.gz
+cd yaourt
+makepkg -si
+# Delete downloaded archives and folders.
+
+
+Док-панель:
+-----------
+$ sudo pacman -S plank
+
+cURL
+----
+curl https://www.google.com/                    # вывести код HTML на STDOUT
+curl -o file.txt https://www.google.com/        # записать ссылку в файл file.txt
+curl -s -o file.txt https://www.google.com/     # записать ссылку в файл file.txt. Ключ -s подавляет вывод в консоль
+curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz # закачать удаленный файл (remoute file) с указанным в URL именем
+
+Pygments
+--------
+$ pygmentize -l bash .xinitrc   # подсветка файла с синтаксисом bash
+$ pygmentize -l cpp file.cpp    # подсветка с синтаксисом с++
+$ pygmentize -f html file.txt   # добавляет дескрипторы html
+
+http://sizakor.deviantart.com/art/Dusty-150629101 #тема GTK
+http://www.deviantart.com/browse/all/customization/wallpaper/ #обои
+
+$ fc-match # инфрмация об установленных шрифтах
+$ fc-match Sans # узнать, на что указывают ссылки Sans и Monospace
+
+.xinitrc
+----------
+exec dbus-launch awesome # необходимо использовать dbus для появления корзины в pcmanfm

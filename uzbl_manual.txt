@@ -1,0 +1,48 @@
+Навигация по Web
+----------------
+o открывает URL
+O редактирует текущий URL
+S Остановка загрузки
+b К предыдущей странице
+m К следующей странице
+U Показать историю в dmenu
+u Показать закладки
+M Создать закладку. Список закладок в файле ~/.local/share/uzbl/bookmarks
+r Перезагрузить текущую страницу
+fl подсвечивает все ссылки и кнопки
+Fl подсвечивает все ссылки
+w Открыть новое окно
+c Клонировать текущее окно
+go - открыть URL в новой вкладке
+gn - открыть новую вкладку
+gC - закрыть текущую вкладку
+gQ - закрыть все вкладки, но не закрывать окно Uzbl;
+g< - перейти к первой вкладке;
+g> - перейти к последней вкладке;
+gt - перейти к следующей вкладке;
+gT - перейти к предыдущей вкладке;
+gi + номер вкладки - перейти к определенной вкладке;
+
+
+Navigating the Page
+
+j Scroll down
+k Scroll up
+h Scroll left
+l Scroll right
+<Page_Up> <Ctrl>f Page up
+<Page_Down> <Ctrl>b Page down
+<Home> Scroll to top
+<End> Scroll to bottom
+/ Search the current page
+?  Search the current page in reverse
+n Next search result
+n Previous search result
+ddg       = search term in DuckDuckGo
+gg        = search term in Google
+\wiki     = search term in Wikipedia
+
+Список закладок в файле ~/.local/share/uzbl/bookmarks
+История сохраняется в файле ~/.local/share/uzbl/history
+Скопируем скрипты в пользовательскую директрию
+cp -rv /usr/share/uzbl/examples/data/scripts/ ~/.local/share/uzbl/

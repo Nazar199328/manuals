@@ -1,0 +1,80 @@
+-------
+Mplayer
+-------
+Ставим плеер с поддержкой va-api (Video Acceleration API)
+VDPAU (Video Decode and Presentation API for Unix) — это свободный набор API разработанный NVIDIA для карточек начиная от GeForce 8 и последних GPU. VDPAU API позволяет распределять процесс декодирования видео и post-processing на GPU т.е. на графическое ядро видео карты. В частности GPU работает с mo comp, iDCT, VLD для MPEG-1, MPEG-2, MPEG-4 AVC (H.264), VC-1, и WMV3/WMV9. Таким образом уменьшая нагрузку процессора.
+
+$ sudo pacman -Sy mplayer-vaapi
+
+В файл .xinitrc добавляем системную переменную:
+export LIBVA_DRIVER_NAME=vdpau
+
+Копируем конфиг:
+$ touch ~/.mplayer/config
+
+Все это пишем в пустом (!) конфиге:
+----------------------------------
+# ~/.mplayer/config
+
+# Разрешение монитора (неквадратные пиксели).
+monitoraspect=16:9
+
+# Настройка субтитров
+ass=true
+fonts = '/usr/share/fonts/TTF/DroidSans.ttf'
+subcp = "utf8"
+subfont-text-scale = "3"
+subfont-blur = "8"
+subfont-outline = "8"
+-----------------------------------
+
+Ежели все равно ничего не работает, задаем язык сабов вручную:
+$ mplayer -subcp utf8 file.mp4
+$ mplayer -subcp cp1251 -sub file.ass file.mvk
+
+Подключение внешней озвучки
+$ mplayer -audiofile file.mka file.mvk
+
+Прописываем в ~/.mplayer/config устройства вывода для аудио и видео
+---------------------------------
+# Устройство вывода видео, где
+# -vo определяет драйвер выходного уст-ва как VDPAU
+# -vc определяет VDPAU видео кодеки
+vo=vdpau:adaptor=1,
+vc=ffh264vdpau,ffmpeg12vdpau,ffodivxvdpau,ffwmv3vdpau,ffvc1vdpau,
+
+# Установка alsa как устройство вывода аудио, choose oss4 as fallback
+ao=alsa,oss
+------------------------------
+
+Запускаем видео с optirun
+$ optirun mplayer file.mvk
+
+Статус кодеков можно узнать командой: mplayer -vc help | grep vdpau
+
+Горячие клавиши
+---------------
+
+<-  or  -> - перемотка назад/вперед на 10 секунд
+Down or Up - перемотка назад/вперед на 1 минуту
+PgDown or PgUp - Перемотка назад/вперед на 10 минут
+< or > - перемещение назад/вперед по плейлисту
+P or SPACE - пауза
+Q or ESC - остановка и выход из программы
++ or -  - смещение аудио/видео синхронизации +/- 0.1 секунда
+O - выводить только прошедшее время, прошедшее+полное время фильма или ничего, включает и
+выключает OSD (отвечающее за отображение разной информации)
+* or / - увеличение/уменьшение громкости
+9  or 0 - увеличение/уменьшение громкости
+X or Z - сдвинуть фразу +/- 0.1 секунд
+R or T - перемещение субтитров вверх/вниз
+
+Shift + 3 - переключение звуковых дорожек
+B - отключить/показать субтитры
+Shift + I - показать название файла
+Shift + P - показывает прошедшее/полное имя фильма, пока зажата комбинация
+
+Mplayer2
+---------
+$ yaourt -S mplayer2-git
+$ cp /etc/mplayer/input.conf .mplayer

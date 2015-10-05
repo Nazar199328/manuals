@@ -1,0 +1,23 @@
+Обновление ядра
+---------------
+# cd /usr/src/linux
+# cp .config ~/kernel-config-`uname -r`
+
+# eselect kernel list # посмотрим имеющиеся ебилды
+# eselect kernel set 2 #создаем симлинк на устанавливаемую версию
+# ls -l /usr/src/linux
+
+# zcat /proc/config.gz > /usr/src/linux/.config # копируем предыдующий конфиг
+# cd /usr/src/linux && ls -al # перейдем в папку и посмотрим на конфиг
+# make olddefconfig # конфигурируем ядро
+
+# make # компилируем ядро
+# make modules_install # устанавливаем модули
+
+# emerge --ask @module-rebuild # переустановка модулей
+
+# make install # копируем ядро /boot
+
+# grub2-mkconfig -o /boot/grub/grub.cfg
+
+

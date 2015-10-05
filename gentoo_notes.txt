@@ -1,0 +1,56 @@
+Дерево портежей - /usr/portage
+Исходники пакетов - /usr/portage/distfiles
+
+# emerge --sync # обновление portage.
+# emerge -info # Смотрим текущие настройки.
+# emerge -pv bind # Смотрим, что нужно для установки пакета.
+# emerge -av samba # Аналог -p, но после вывода информации, спрашивает продолжить ли выполнять emerge.
+# emerge -av =app-editors/nano-2.0.9 # установка конкретной версии пакета
+
+# qlist -a # список всех установленных файлов пакетов
+# qlist -I # список всех установленных пакетов
+
+# equery uses firefox # с какими флагами был установлен пакет firefox.
+# equery files firefox # какие файлы принадлежат пакету firefox.
+# equery depgraph firefox # показать дерево зависимостей пакета firefox
+# equery -q d python # какие установленные пакеты зависят от python.
+# equery u firefox # посмотреть значения USE флагов для firefox.
+# quickpkg firefox # Собираем бинарный пакет с уже установленного в системе.
+# eclean -p distfiles # Выявляем устаревшие исходник.
+# eclean distfiles # Избавляемся от устаревших исходников, чистим /usr/portage/distfiles.
+# revdep-rebuild # Пересборка всех зависимостей по пакетам.
+# emerge --search pdf # Поиск пакета, в названии котрого есть pdf
+# emerge -p -f bind9 # Смотрим url откуда можно с тянуть sources.
+# emerge -pe bind9 # Смотрим зависимости.
+# emerge -pu samba # Смотрим какие пакеты будут обновлены.
+# emerge -f samba # Качаем только исходники по пакету без установки.
+# emerge —k samba # установка прекомпиленный пакет из
+# emerge —K samba # Аналог -k, но если нужной прекомпиленной версии нет, то используется какая есть
+# emerge samba # Установка пакета.
+# emerge -u bind9 # Обновляем пакет.
+# emerge --deselect sys-fs/udev # Удаление пакета
+# emerge -Cpv foo # Удаление пакета.
+
+# emerge -uavDN @system # обновить системные пакеты с новыми флагами и зависимостями
+# emerge -uavDN @world # обновить мир с новыми флагами и зависимостями
+# emerge -a --depclean # Удаляем ненужные пакеты из системы, чистим систему.
+# emerge -pv --depclean foo # Проверка зависимостей для удаляемого пакета
+# emerge -eav @world # Пересборка системы
+
+# etcat -v firefox # Вывести все версии пакета.
+# etcat -u samba # Какими настройками USE (только из влияющих на этот пакет) была установлена программа.
+# echo «category/moo some flags» >> /etc/portage/package.use # Добавление используемого флага
+# etc-update # Обновление конфигурационных файлов.
+# dispatch-conf # Обновление конфигурационных файлов.
+gentoolkit # основные утилиты: euse, equery, eclean, quickpkg…
+epm # аналог equery
+esearch # Быстрое индексирование пакетов, для быстрого поиска.
+
+# systemctl restart systemd-networkd.service # рестарт юнита интернета
+# layman -L # все доступные оверлеи
+# layman -l # подключенные оверлеи
+# layman -a overlay # подключить оверлей overlay
+# layman -s overlay # синхронизировать оверлей
+# layman -d overlay # удалить оверлей из локального списка
+
+

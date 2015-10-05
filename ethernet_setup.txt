@@ -1,0 +1,13 @@
+$ ip link
+$ sudo ip link set enp14s0 up
+$ sudo ip addr add 192.168.1.25/24 broadcast 192.168.1.255 dev enp14s0
+$ sudo ip route add default via 192.168.1.1
+$ sudo nano /etc/resolv.conf
+nameserver 192.168.1.1
+
+
+
+address=192.168.1.25
+netmask=24
+broadcast=192.168.1.255
+gateway=192.168.1.1

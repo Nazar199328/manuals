@@ -1,0 +1,47 @@
+
+Если выполните на своём компьютере lspci -nn|grep -i 1002, то должны обнаружить свою ATI видеокарту.Подготовка к установке
+
+
+Для начала нам потребуется скачать проприетарный драйвер последней версии с официального сайта AMD и установить зависимости, необходимые для сборки драйвера. Для того, чтобы установить требуемые пакеты выполните:
+
+    Для 64-битных систем
+
+    sudo apt-get install build-essential cdbs fakeroot dh-make debhelper debconf libstdc++6 dkms libqtgui4 wget execstack libelfg0 dh-modaliases linux-headers-generic xserver-xorg-core libgcc1 ia32-libs-multiarch:i386 lib32gcc1 libc6-i386
+
+    Для 32-битных систем
+
+    sudo apt-get install build-essential cdbs fakeroot dh-make debhelper debconf libstdc++6 dkms libqtgui4 wget execstack libelfg0 dh-modaliases linux-headers-generic xserver-xorg-core libgcc1
+
+
+
+
+
+Установка драйвера
+
+    Разрешаем запуск инсталлятора. Обратите внимание на то, что вместо 8.982 может быть другая версия - посмотрите название инсталлятора, скаченного вами с сайта AMD.
+
+    chmod +x amd-driver-installer-8.982-x86.x86_64.run
+
+    Генерируем пакеты для вашей версии дистрибутива. Обратите внимание на то, что вместо Ubuntu/precise вам может понадобиться указать используемую вами версию дистрибутива, если она отлична от Ubuntu 12.04.
+
+    sh ./amd-driver-installer-8.982-x86.x86_64.run --buildpkg Ubuntu/precise
+
+    Устанавливаем сгенерированные пакеты:
+
+    sudo dpkg -i fglrx*.deb
+
+    Создаём конфигурационный файл видео драйвера:
+
+    sudo amdconfig --initial -f
+
+После успешной установки нужно закрыть терминал и выполнить перезагрузку системы. 
+
+
+
+Удаление драйвера
+
+Прежде всего перед установкой драйвера, нужно удалить текущий следующими двумя командами:
+
+ sudo sh /usr/share/ati/fglrx-uninstall.sh
+
+ sudo apt-get remove --purge fglrx fglrx_* fglrx-amdcccle* fglrx-dev* xorg-driver-fglrx

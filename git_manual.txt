@@ -1,0 +1,42 @@
+Система контроля версий Git.
+----------------------------
+# Добавляем имя и e-mail
+$ git config --global user.name  "Mikhail Kolontay"
+$ git config --global user.email "mk1981000@gmail.com"
+
+# Настройки появятся в файле .gitconfig, если нет файла $XDG_CONFIG_HOME/git/config
+# Если необходимо создадим этот файл, тогда настройки будут считываться из него
+$ mkdir $XDG_CONFIG_HOME/git
+$ mv .gitconfig $XDG_CONFIG_HOME/git/config
+
+# Выведем настройки git
+$ git config --list
+
+# Справка по git
+$ git config --help
+
+# Создадим папку, перейдем в нее и сделаем ее репозиторием
+$ mkdir dotfiles; cd dotfiles
+$ git init
+
+# В папку можно поместить файлы, но они не будут находится под версионным контролем
+$ git add file1 file2 # включить в файлы в репозиторий
+$ git add . # добавить в репозиторий все файлы
+
+$ git status # статус файлов
+$ git commit --message "first commit" #закоммитим добавленные файлы
+
+# Посмотреть, в какой мы ветке
+$ git branch
+
+$ git checkout .    # вернуть все файлы в состояние последнего коммита
+$ git checkout -- file # вернуть файл file  в состояние последнего коммита
+$ git remote        # посмотреть удаленные репозитории
+$ git pull origin   # забрать изменения с удаленного репозитория origin. Если у нас форк проeкта, будет также репозиторий offsteam, для которого надо будет определить url
+
+$ git push # отправить коммиты на удаленный репозиторий
+$ git push origin master # отправить коммиты на удаленный репозиторий, определенный как origin в ветку master
+
+$ git log --pretty=oneline | cat # посмотреть историю коммитов до текущего коммита (указатель HEAD)
+$ git log --pretty=oneline --all | cat # посмотреть всю историю коммитов
+$ git checkout commit

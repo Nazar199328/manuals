@@ -1,0 +1,18 @@
+﻿http://4pda.ru/forum/index.php?showtopic=607530 - топик xperia z3
+http://forum.xda-developers.com/crossdevice-dev/sony/giefroot-rooting-tool-cve-2014-4322-t3011598 - инструменты для получения рута
+http://nut.xperia-files.com/ - рекавери для xperia
+
+Некоторые команды sh
+--------------------
+$ su -c reboot recovery     # перезагрузка в recovery
+$ su -c command             # выполнить команду от рута
+
+Файловая система Андроид
+------------------------
+/system/app/ - системные приложения;
+/data/app/ — приложения, скачанные с GooglePlay;
+/data/data/ - данные для каждого отдельного приложения, кэш приложения и т. д.
+/data/data/com.n0n3m4.droidc - данные среды разработки c4droid
+/data/data/com.n0n3m4.droidc/files/temp.c - код последнего редактированного приложения
+/data/data/com.n0n3m4.droidc/files/temp - последний скомпилированный бинарник
+

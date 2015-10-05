@@ -1,0 +1,172 @@
+Интернет
+--------
+
+Ping – время между запросом к серверу и ответом от него (в миллисекундах).
+$ ping -c4 8.8.8.8
+
+Активация/деактивация интернет-соединения
+ip link set eth0 up
+ip link set eth0 down
+
+Запустить/остановить профиль
+sudo netctl start net
+sudo netctl stop net
+
+Добавить/удалить профиль из автозагрузки
+sudo netctl enable ethernet-dhcp
+sudo netctl disable ethernet-dhcp
+
+Команды netctl
+$ man netctl
+
+Список доступных профилей
+$ netctl list
+
+Статус профиля profile
+$ netctl status profile
+
+Параметры интернета отображает утилита ifconfig
+Чтобы она появилась
+sudo pacman -S net-tools
+
+$ ifconfig
+inet 192.168.1.25  netmask 255.255.255.0  broadcast 192.168.1.255
+
+---------------------------------
+Ручное подключение к интернет
+---------------------------------
+$ ip link
+$ sudo ip link set enp14s0 up
+$ sudo ip addr add 192.168.1.105/24 broadcast 192.168.1.255 dev enp14s0
+$ sudo ip route add default via 192.168.1.1
+$ sudo nano /etc/resolv.conf (берем из настроек роутера)
+nameserver 195.34.32.116
+nameserver 212.188.4.10
+
+-------------------------------------------------
+Настройка автоматического подключения к интернет статический ip.
+------------------------------------------------
+
+Для интерфейса enp14s0 создаем файл окружения (EnvironmentFile):
+$ sudo nano /etc/conf.d/network@enp14s0
+-------------------------------------
+address=192.168.1.25
+netmask=24
+broadcast=192.168.1.255
+gateway=192.168.1.1
+
+Создаем systemd unit file:
+$ sudo nano /etc/systemd/system/network@.service
+----------------------------------------------------------
+[Unit]
+Description=Network connectivity (%i)
+Wants=network.target
+Before=network.target
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/network@%i
+
+ExecStart=/usr/bin/ip link set dev %i up
+ExecStart=/usr/bin/ip addr add ${address}/${netmask} broadcast ${broadcast} dev %i
+ExecStart=/usr/bin/sh -c 'test -n ${gateway} && /usr/bin/ip route add default via ${gateway}'
+
+ExecStop=/usr/bin/ip addr flush dev %i
+ExecStop=/usr/bin/ip link set dev %i down
+
+[Install]
+WantedBy=multi-user.target
+----------------------------------
+
+Добавляем профиль в автозапуск и стартуем его:
+$ sudo systemctl enable network@enp14s0.service
+$ sudo systemctl start network@enp14s0.service
+
+Если сразу не получается запустить профиль, перезагружаем компьютер и роутер. PROFIT!!
+--------------------------------
+
+Настройка wifi со статическим ip.
+--------------------------------
+Определяем имя интерфейса
+$ ip link
+Приступаем к созданию профиля:
+
+Создаем файл окружения (EnvironmentFile):
+/etc/conf.d/network-wireless@wlp13s0
+-------------------------------------
+address=192.168.1.104
+netmask=24
+broadcast=192.168.1.255
+gateway=192.168.1.1
+-------------------------------------
+Создаем systemd юнит-файл:
+/etc/systemd/system/network-wireless@.service
+---------------------------------------------
+[Unit]
+Description=Wireless network connectivity (%i)
+Wants=network.target
+Before=network.target
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/conf.d/network-wireless@%i
+
+ExecStart=/usr/bin/ip link set dev %i up
+ExecStart=/usr/bin/wpa_supplicant -B -i %i -c /etc/wpa_supplicant/wpa_supplicant.conf
+ExecStart=/usr/bin/ip addr add ${address}/${netmask} broadcast ${broadcast} dev %i
+ExecStart=/usr/bin/ip route add default via ${gateway}
+
+ExecStop=/usr/bin/ip addr flush dev %i
+ExecStop=/usr/bin/ip link set dev %i down
+
+[Install]
+WantedBy=multi-user.target
+---------------------------------------------------
+
+Создаем основу для конфига wpa.conf
+/etc/wpa_supplicant/wpa_supplicant.conf
+----------------------------
+ctrl_interface=/run/wpa_supplicant
+update_config=1
+---------------------------
+
+Приступаем к генерации конфига wpa.conf
+$ sudo wpa_supplicant -B -i wlp13s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+$ sudo wpa_cli
+> scan
+OK
+<3>CTRL-EVENT-SCAN-RESULTS
+> scan_results
+bssid / frequency / signal level / flags / ssid
+00:00:00:00:00:00 2462 -49 [WPA2-PSK-CCMP][ESS] MYSSID
+11:11:11:11:11:11 2437 -64 [WPA2-PSK-CCMP][ESS] ANOTHERSSID
+> add_network
+0
+> set_network 0 ssid "MYSSID"
+> set_network 0 psk "passphrase"
+> enable_network 0
+<2>CTRL-EVENT-CONNECTED - Connection to 00:00:00:00:00:00 completed (reauth) [id=0 id_str=]
+> save_config
+OK
+> quit
+
+	MGTS_GPON_0686
+Добавляем профиль в автозапуск и стартуем его:
+$ sudo systemctl enable network-wireless@wlp13s0.service
+$ sudo systemctl start network-wireless@wlp13s0.service
+Перезагружаем компьютер и при загруженной оси перезагружаем роутер.
+
+Настройка wifi с динамическим ip при помощи netctl.
+--------------------------------------------------
+$ sudo ip link set wlp13s0 down # опустим интерфейст
+$ cd /etc/netctl
+$ sudo cp examples/wireless-wpa-config wifi_net #создадим шаблон для профиля
+$ $ vim wifi_net # отредактируем профиль, прописав интерфейс и путь к конфигу wpa_supplicant
+$ sudo netctl start wifi_net # стартанем профиль
+$ sudo netctl enable wifi_net # добавим его в автозагрузку

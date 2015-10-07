@@ -3,8 +3,6 @@
 #Для того, чтобы команды работали в русской раскладке в .vimrc добавить строчку:
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-
-
 #Передвижение по перенесенным строкам (wrapped lines) как по нормальным:
 nnoremap j gj
 nnoremap k gk
@@ -182,6 +180,13 @@ recording
 ---------
 q<letter> #включает recording
 q # выключает recording
+
+vim-figitive
+-------------
+:Gwrite     :Git add %          Сохранить изменения
+:Gread      :Git chechout %     Вернуться к закоммитенной версии
+:Gcommit    :Git commit %       Закоммитить изменения
+:Gpush      :Git push %         Залить коммит на удаленный репозиторий
 
 scrooloose/nerdcommenter
 ------------------------

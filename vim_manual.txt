@@ -187,6 +187,7 @@ vim-figitive
 :Gread      :Git chechout %     Вернуться к закоммитенной версии
 :Gcommit    :Git commit %       Закоммитить изменения
 :Gpush      :Git push %         Залить коммит на удаленный репозиторий
+:Gstatus    :Git status %       Статус 
 
 scrooloose/nerdcommenter
 ------------------------

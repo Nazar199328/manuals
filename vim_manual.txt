@@ -184,7 +184,7 @@ q # выключает recording
 vim-figitive
 -------------
 :Gwrite     :Git add %          Сохранить изменения
-:Gread      :Git chechout %     Вернуться к закоммитенной версии
+:Gread      :Git chechout %     Вернуться к закоммиченной версии
 :Gcommit    :Git commit %       Закоммитить изменения
 :Gpush      :Git push %         Залить коммит на удаленный репозиторий
 :Gstatus    :Git status %       Статус 

@@ -751,3 +751,5 @@ $ fc-match Sans # узнать, на что указывают ссылки Sans
 .xinitrc
 ----------
 exec dbus-launch awesome # необходимо использовать dbus для появления корзины в pcmanfm
+
+man strftime # формат дата время

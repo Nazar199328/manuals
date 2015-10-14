@@ -1,0 +1,10 @@
+Vimerator - https://addons.mozilla.org/en-US/firefox/addon/vimperator/ 
+Stylish
+Classic Theme Restorer - https://addons.mozilla.org/en-US/firefox/addon/classicthemerestorer/
+Australis menu List view - https://userstyles.org/styles/97314/australis-menu-list-view
+minimal floating scrollbars for firefox windows - https://userstyles.org/styles/83431/minimal-floating-scrollbars-for-firefox-windows
+Gray icon on inactive tabs - https://userstyles.org/styles/116425/gray-icon-on-inactive-tabs
+Firefox Loading Progress - https://userstyles.org/styles/97761/firefox-loading-progress-orange-gray
+Прототип нового дизайна ВКонтакте - https://userstyles.org/styles/108456/theme
+friGate - https://addons.mozilla.org/ru/firefox/addon/frigate/
+NoScripti - https://addons.mozilla.org/en-US/firefox/addon/noscript/

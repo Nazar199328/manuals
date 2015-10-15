@@ -8,3 +8,15 @@ Firefox Loading Progress - https://userstyles.org/styles/97761/firefox-loading-p
 Прототип нового дизайна ВКонтакте - https://userstyles.org/styles/108456/theme
 friGate - https://addons.mozilla.org/ru/firefox/addon/frigate/
 NoScripti - https://addons.mozilla.org/en-US/firefox/addon/noscript/
+
+Добавить в Stylish фикс для ЛОРа (убирает скругления)
+
+@-moz-document domain("linux.org.ru") {
+ * {
+  border-radius:0!important;
+ }
+ #bd .btn{
+  padding:3px 10px!important;
+  border:1px solid rgb(212, 212, 212)!important;
+ }
+}

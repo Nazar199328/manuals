@@ -13,6 +13,7 @@ Anti AdBlock Killer - болкирует блокировщики блокиро
 Adblock Plus - https://addons.mozilla.org/En-us/firefox/addon/adblock-plus/?src=dp-dl-dependencies
 µBlock - https://addons.mozilla.org/en-US/firefox/addon/ublock/
 YouTube Flash Video Player - https://addons.mozilla.org/ru/firefox/addon/youtube-flash-video-player/
+arc-firefox-theme - https://github.com/horst3180/arc-firefox-theme
 
 Добавить в Stylish фикс для ЛОРа (убирает скругления)
 

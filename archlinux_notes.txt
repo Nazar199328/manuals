@@ -375,6 +375,8 @@ rcutree.rcu_idle_gp_delay=1
 Должно получиться:
 GRUB_CMDLINE_LINUX_DEFAULT="quiet rcutree.rcu_idle_gp_delay=1"
 
+Чтобы видеть загрузку systemd убрать quiet из GRUB_CMDLINE_LINUX_DEFAULT 
+
 После этого выполнить следующее:
 $ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -753,3 +755,4 @@ $ fc-match Sans # узнать, на что указывают ссылки Sans
 exec dbus-launch awesome # необходимо использовать dbus для появления корзины в pcmanfm
 
 man strftime # формат дата время
+dmesg #вывод сообщений буфера ядра

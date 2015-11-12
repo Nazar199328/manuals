@@ -1,3 +1,5 @@
+Список плагинов
+---------------
 Vimerator - https://addons.mozilla.org/en-US/firefox/addon/vimperator/ 
 Stylish
 Classic Theme Restorer - https://addons.mozilla.org/en-US/firefox/addon/classicthemerestorer/
@@ -28,3 +30,20 @@ arc-firefox-theme - https://github.com/horst3180/arc-firefox-theme
 }
 
 В Classic theme restorer во вкладке toolbar2 убать тени, поставив галку на hide shadow for toolbar text and tab text
+
+Настройка видео
+---------------
+ sudo pacman -S  gst-libav  # установить gstreamer-libav
+В настройках about:blank
+media.mediasource.enabled               true
+media.mediasource.mp4.enabled           true
+media.mediasource.webm.enabled          true
+media.fragmented-mp4.enabled            true
+media.fragmented-mp4.exposed            true
+media.fragmented-mp4.ffmpeg.enabled     true
+media.fragmented-mp4.gmp.enabled        true
+media.fragmented-mp4.use-blank-decoder  false
+Ссылки:
+http://blog.golovin.in/firefox-is-better-with-no-flash-player/ 
+http://www.quirksmode.org/html5/tests/video.html#link2
+https://www.youtube.com/html5

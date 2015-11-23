@@ -61,3 +61,4 @@ $ sudo grub-mkconfig -o /boot/grub/grub.cfg		# После этого перек�
 В файле /etc/pacman.d/mirrorlist указать сервер, остальные закомментировать
 Server=http://ala.seblu.net/repos/2014/03/30/$repo/os/$arch
 $ sudo pacman -Syyuu # Обновить базы данных и принудительно откатиться
+https://wiki.archlinux.org/index.php/Arch_Linux_Archive # старые пакеты

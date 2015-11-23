@@ -1,0 +1,63 @@
+Pacman
+------
+# Конфигурационный файл /etc/pacman.conf
+# Для установки 32-bit приложений раскомментировать строчки:
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+
+# Список серверов находится в файле /etc/pacman.d/mirrorlist. Необходимо раскомментировать необходимые сервера.
+
+$ sudo pacman -Syy				# Обновление данных о пакетах из репозиториев (сделать после редактирования pacman.conf):
+$ sudo  pacman -Syu				# Обновление всех пакетов:
+$ yaourt -Syua --noconfirm	    # Обновление всех пакетов из оф. репозиториев и AUR
+# -S - установка/обновление;
+# -y - синхронизация из репозиториев списков пакетов;
+# -u - обновление пакетов, установленных из репозиториев указанных в pacman.conf;
+# -a - обновление пакетов, установленных из AUR
+# --noconfirm - не спрашивать подтверждение.
+
+$ sudo pacman -S <package_name> 	# Добавление/обновление пакета.
+$ sudo pacman -Q <package_name>		# Проверка, установлен ли пакет.
+$ pacman -Qi <package_name>			# Информация об установленном пакете.
+$ pacman -Qo /путь/к/файлу          # Какому пакету проинадлежит файл
+$ pacman -Ql <package_name>			# Список файлов пакета.
+$ pacman -Si <package_name>			# Информация о неустановленном пакете.
+$ sudo pacman -R <package_name>		# Удаление пакетов.
+$ sudo pacman -Rs <package_name>	# Удаления пакетов со всеми зависимостями, не используемыми другими установленными пакетами.
+$ sudo pacman -Qdtq 				# Отображение пакетов, которые больше не требуются.
+$ pacman -Ss <expression>			# Поиск пакетов в репозиториях по регулярному выражению.
+
+Для отключения подписей пакетов в файле /etc/pacman.conf добавить строчку изменить параметр SigLevel:
+
+SigLevel    = Never
+#SigLevel    = Required DatabaseOptional
+
+И обновить pacman:
+$ sudo pacman -Syy
+
+$ du -sh /var/cache/pacman/*	# Размер кэша пакмана
+$ sudo pacman -Sc				# Удаление из кэша не установленных на данный момент пакетов.
+$ sudo pacman -Scc				# Удаление из кэша вообще всех пакетов:
+
+Откат к предыдущей версии пакета
+--------------------------------
+$ ls -l /var/cache/pacman/pkg | grep pkgname # Ищем пакет в кэше
+$ sudo pacman -U /var/cache/pacman/pkg/pkgname-olderpkgver.pkg.tar.gz.
+$ sudo pacman -Ud pkgpkgname-olderpkgver.pkg.tar.gz
+# Для запрета обновления пакета, добавить название пакета в строку "IgnorePkg" файла /etc/pacman.conf. IgnorePkg = package1 package2 ...
+# Это запретит pacman, при выполнении --sysupgrade, устанавливать обновления для выбранных пакетов.
+
+$ makepkg -si 	# Установка скаченного и разархивированного пакета
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg		# После этого переконфигурируем GRUB.
+
+Запретить pacman обновлять некоторые пакеты
+-------------------------------------------
+
+Добавить название пакета в строку "IgnorePkg" файла /etc/pacman.conf. IgnorePkg = package1 package2 ... в pacman.conf запретит pacman.
+При выполнении --sysupgrade, устанавливать обновления для выбранных пакетов.
+
+Откат всех покетов к состоянию на определенную дату
+---------------------------------------------------
+В файле /etc/pacman.d/mirrorlist указать сервер, остальные закомментировать
+Server=http://ala.seblu.net/repos/2014/03/30/$repo/os/$arch
+$ sudo pacman -Syyuu # Обновить базы данных и принудительно откатиться

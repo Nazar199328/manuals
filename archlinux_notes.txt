@@ -699,3 +699,8 @@ exec dbus-launch awesome # необходимо использовать dbus д
 
 man strftime # формат дата время
 dmesg #вывод сообщений буфера ядра
+
+$ sudo pacman -S fortune-mod # фортунки
+$ http://www.lorquotes.ru/fortunes.php # фортунки ЛОРа
+$ sudo pacman -S cowsay ponysay # пони и коровка
+$ fortune lorquotes | ponysay # фортунки с поняшами

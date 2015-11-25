@@ -187,7 +187,10 @@ vim-figitive
 :Gread      :Git chechout %     Вернуться к закоммиченной версии
 :Gcommit    :Git commit %       Закоммитить изменения
 :Gpush      :Git push %         Залить коммит на удаленный репозиторий
-:Gstatus    :Git status %       Статус 
+:Gstatus    :Git status %       Статус
+Удобное переключение между коммитами:
+:Glog
+:copen
 
 scrooloose/nerdcommenter
 ------------------------
@@ -248,3 +251,4 @@ chrisbra/SudoEdit.vim
 /usr/share/vim/vim74/macros/less.sh file.txt    #просмотр файла при помощи vim
 
  #Если нажать пробел внутри фигурных скобок в режиме редактирования исходного кода C/C++, тело блока скроется. Повторное нажататие  пробела вернет его на место.
+

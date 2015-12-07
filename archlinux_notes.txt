@@ -704,3 +704,6 @@ $ sudo pacman -S fortune-mod # фортунки
 $ http://www.lorquotes.ru/fortunes.php # фортунки ЛОРа
 $ sudo pacman -S cowsay ponysay # пони и коровка
 $ fortune lorquotes | ponysay # фортунки с поняшами
+infinality # патчи для freetype, делающие Ш не Г
+# Нужно добавить ключ ID 962DDE58 в ваш pacman keyring. Как это сделать - по ссылке
+https://wiki.archlinux.org/index.php/Pacman/Package_signing#Adding_unofficial_keys

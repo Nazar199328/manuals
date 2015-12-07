@@ -16,3 +16,6 @@ $ su -c command             # выполнить команду от рута
 /data/data/com.n0n3m4.droidc/files/temp.c - код последнего редактированного приложения
 /data/data/com.n0n3m4.droidc/files/temp - последний скомпилированный бинарник
 
+*#*#7378423#*#* #всякая инфа о телефоне
+jmtpfs #для монтирования android на linux
+https://wiki.archlinux.org/index.php/MTP #подробнее о монтировании

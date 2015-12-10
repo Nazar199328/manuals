@@ -19,3 +19,12 @@ $ su -c command             # выполнить команду от рута
 *#*#7378423#*#* #всякая инфа о телефоне
 jmtpfs #для монтирования android на linux
 https://wiki.archlinux.org/index.php/MTP #подробнее о монтировании
+
+Android Debug Bridge
+--------------------
+https://wiki.archlinux.org/index.php/Android#Android_Debug_Bridge_.28ADB.29
+$ adb devices   #определить устройство. На телефоне включить отладку по usb
+$ adb install file.apk  #установка приложений
+$ adb push <file> /sdcard/  # отправить файл с ПК на Android
+$ adb pull /sdcard/file # принять файл с Android на ПК
+$ adb shell # оказаться в оболочке Андроида

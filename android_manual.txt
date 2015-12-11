@@ -23,8 +23,20 @@ https://wiki.archlinux.org/index.php/MTP #подробнее о монтиров
 Android Debug Bridge
 --------------------
 https://wiki.archlinux.org/index.php/Android#Android_Debug_Bridge_.28ADB.29
-$ adb devices   #определить устройство. На телефоне включить отладку по usb
-$ adb install file.apk  #установка приложений
+$ adb devices               # определить устройство. На телефоне включить отладку по usb
+$ adb install file.apk      # установка приложений
 $ adb push <file> /sdcard/  # отправить файл с ПК на Android
-$ adb pull /sdcard/file # принять файл с Android на ПК
-$ adb shell # оказаться в оболочке Андроида
+$ adb pull /sdcard/file     # принять файл с Android на ПК
+$ adb shell                 # оказаться в оболочке Андроида
+
+Soft
+----
+Kate Mobile (вручную)       # клиент для vk.com
+GoldenDict Free (вручную)   # словарик
+F-droid (вручную)           # менеджер приложений
+Cool Reader(f-droid)        # читалка
+Document Viewer(f-droid)    # читалка pdf
+Firefox (f-droid)           # веб-браузер
+ForPDA (f-droid)            # клиент для 4pda.ru
+Obsqr (f-droid)             # сканер QR-кодов
+Terminal Emulator (f-droid) # эмулятор терминала

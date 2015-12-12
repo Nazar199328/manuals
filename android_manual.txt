@@ -40,3 +40,13 @@ Firefox (f-droid)           # веб-браузер
 ForPDA (f-droid)            # клиент для 4pda.ru
 Obsqr (f-droid)             # сканер QR-кодов
 Terminal Emulator (f-droid) # эмулятор терминала
+
+
+Changing lock screen wallpaper on CyanogenMod 12 ROMs
+----------------------------------------------------------
+* You need a file explorer with special permissions like ES File Manager or Root Explorer.
+* Using the file manager, go to /data/system/users/0 and find a file called “keyguard_wallpaper”.
+* Rename the file to something else like “keyguard_wallpaperOLD”.
+* Now, navigate to the folder where your desired wallpaper is and rename it “keyguard_wallpaper”.
+* Move the file to /data/system/users/0 and set the correct permissions.
+* Reboot your phone, lock the screen and enjoy the new lock screen wallpaper.

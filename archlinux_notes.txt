@@ -707,3 +707,4 @@ $ fortune lorquotes | ponysay # фортунки с поняшами
 infinality # патчи для freetype, делающие Ш не Г
 # Нужно добавить ключ ID 962DDE58 в ваш pacman keyring. Как это сделать - по ссылке
 https://wiki.archlinux.org/index.php/Pacman/Package_signing#Adding_unofficial_keys
+$ nitrogen /path/to/image/directory/ # порграмма для установки обоев

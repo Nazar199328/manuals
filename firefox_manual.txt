@@ -9,6 +9,9 @@ Firefox Loading Progress - https://userstyles.org/styles/97761/firefox-loading-p
 minimal floating scrollbars for firefox windows - https://userstyles.org/styles/83431/minimal-floating-scrollbars-for-firefox-windows
 Gray icon on inactive tabs - https://userstyles.org/styles/116425/gray-icon-on-inactive-tabs
 Прототип нового дизайна ВКонтакте - https://userstyles.org/styles/108456/theme
+Стиль для VK.COM - https://userstyles.org/styles/120347/gray-blue-vk
+Стиль для github - https://userstyles.org/styles/37035/github-dark
+Стиль для userstyle.org - https://userstyles.org/styles/37035/github-dark
 friGate - https://addons.mozilla.org/ru/firefox/addon/frigate/
 NoScripti - https://addons.mozilla.org/en-US/firefox/addon/noscript/
 Anti AdBlock Killer - болкирует блокировщики блокировщика рекламы

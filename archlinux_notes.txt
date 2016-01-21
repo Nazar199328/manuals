@@ -200,8 +200,8 @@ $ alsamixer                     # Псевдографический интер�
 $ amixer get Master             # Какая-то общая громкость
 $ amixer get Speaker            # Колонки
 $ amixer set Master 90% unmute	# Регулирование громкости из консоли; unmute - включить, если звук отключен
-$ amixer set PCM 95% unmute		# Регулирование громкости из консоли
-$ amixer set Master 5+   		# Регулирование громкости из консоли
+$ amixer set PCM 95% unmute	# громкости из консоли
+$ amixer set Master 5+   	# громкости из консоли
 $ speaker-test -c 2             # Тест колонок
 $ amixer -q set Master mute     # Отключение громкости; ключ -q подавляет вывод в теринал
 
@@ -213,7 +213,8 @@ $ aplay -D plughw:0,3 /usr/share/sounds/alsa/Front_Center.wav  #звук на ca
 $ xbacklight -set 60  # Регулировка яркости в консоли
 $ xbacklight -inc 10  # Увеличение яркости
 $ xbacklight -dec 10  # Уменьшение яркости
-
+$ echo 1100 > /sys/class/backlight/intel_backlight/brightnes # Регулировка яркости в консоли
+$ yaourt -S light-git # альтернатива xbacklight https://github.com/haikarainen/light
 При воспроизведении видео при ошибке:
 vaapi generic error: Failed to initialize the VAAPI device
 установить libvdpau-va-gl

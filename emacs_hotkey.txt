@@ -44,7 +44,7 @@ M-a		# перемещение в конец предложения
 Поиск
 -----
 C-s		# поиск 
-M-x replace-string RETfooRETbar # заменяет каждое вхождение foo на bar
+M-% 		# замена
 
 Фреймы, буферы и окна
 ---------------------
@@ -67,12 +67,17 @@ tetris		# поиграть в тетрис
 shell 		# запустить шелл
 compile 	# компилировать
 list-packages	# плагины
+calendar	# календарь
+calculator	# калькулятор
+phases-of-moon	# фазы луны
 
 Cправка
 -------
 C-h f foo	# справка по функции foo
 C-h k foo	# справка по кейбинду foo
 C-h v foo	# справка по переменной foo
+С-h m 		# справка по текущему major-mode (python-mode, text-mode etc)
+
 Макросы
 -------
 C-x (		# начать запись макроса
@@ -80,3 +85,41 @@ C-x )		# завершить запись макроса
 C-x e 		# выполнить макрос
 
 C-\ 		# переключение на русскую раскладку
+
+Закладки (bookmarks)
+--------------------
+C-x r m		# добавить закладку
+C-x r l		# открыть закладку
+D     		# отметить закладку
+x   		# удалить отмеченные закладки
+r    		# переименовать файл
+s   		# сохранить изменения
+
+Прямоугольные выделения (rectangle)
+------------------------------------
+# http://ergoemacs.org/emacs/emacs_string-rectangle_ascii-art.html
+C-x r k		# kill-rectangle 
+C-x r t		# replace-rectangle
+C-x r y		# yank-rectangle
+
+dired
+-----
+【C】	dired-do-copy		Copy file
+【R】	dired-do-rename 	Rename/move file
+【D】	dired-do-delete 	Delete file or directory
+【+】	dired-create-directory 	Create new dir
+【Z】	dired-do-compress 	Compress/decompress the file by gzip
+
+【m】	dired-mark 		mark a file
+【u】	dired-unmark 		unmark
+【U】	dired-unmark-all-marks	unmark all marked
+【% m】	dired-mark-files-regexp	mark by pattern (regex)
+
+【g】	revert-buffer 		refresh dir listing
+【^】	dired-up-directory	go to parent dir
+【>】	dired-next-dirline	Move cursor to next subdirectory.
+【<】	dired-prev-dirline	Move cursor to previous subdirectory.
+
+Комментарии
+-----------
+M-;	comment-dwim		# комментировать/раскомментировать регион

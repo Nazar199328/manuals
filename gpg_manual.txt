@@ -1,0 +1,9 @@
+GnuGP
+-----
+gpg --gen-key					# сгенерировать новый ключ
+gpg -e -a -r 'Mikhail Kolontay' foo.txt 	# зашифровать файл
+gpg -d secret.txt.asc 				# расшифровать файл
+
+gpg --export-secret-keys --armor <user-id> > privkey.asc	# забэкапить ключ
+gpg --import < privkey.asc	 	     			# восстановить ключ
+# после восстановления бэкапа удалить privkey.asc

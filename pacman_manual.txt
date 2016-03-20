@@ -69,13 +69,11 @@ https://wiki.archlinux.org/index.php/Arch_Linux_Archive # старые паке�
 sudo pacman-db-upgrade
 yaourt -R package-query yaourt
 
-curl -O https://aur.archlinux.org/packages/pa/package-query/package-query.tar.gz
-tar zxvf package-query.tar.gz
+git clone https://aur.archlinux.org/package-query.git
 cd package-query
 makepkg -si
 cd ..
-curl -O https://aur.archlinux.org/packages/ya/yaourt/yaourt.tar.gz
-tar zxvf yaourt.tar.gz
+git clone https://aur.archlinux.org/yaourt.git
 cd yaourt
 makepkg -si
 

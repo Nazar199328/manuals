@@ -40,7 +40,7 @@ Firefox (f-droid)           # веб-браузер
 ForPDA (f-droid)            # клиент для 4pda.ru
 Obsqr (f-droid)             # сканер QR-кодов
 Terminal Emulator (f-droid) # эмулятор терминала
-
+Instagram (вручную)         # инстаграм
 
 Changing lock screen wallpaper on CyanogenMod 12 ROMs
 ----------------------------------------------------------

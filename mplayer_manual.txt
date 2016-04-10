@@ -32,6 +32,9 @@ subfont-outline = "8"
 $ mplayer -subcp utf8 file.mp4
 $ mplayer -subcp cp1251 -sub file.ass file.mvk
 
+Масштаб субтитров (например в 3 раза крупнее)
+$ mplayer -subcp utf8 file.mp4 -ass-font-scale 3
+
 Подключение внешней озвучки
 $ mplayer -audiofile file.mka file.mvk
 

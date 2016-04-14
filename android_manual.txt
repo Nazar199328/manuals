@@ -27,6 +27,7 @@ $ adb devices               # определить устройство. На т
 $ adb install file.apk      # установка приложений
 $ adb push <file> /sdcard/  # отправить файл с ПК на Android
 $ adb pull /sdcard/file     # принять файл с Android на ПК
+$ adb pull /sdcard/DCIM/Camera/	# скопировать все файлы из папки Camera с Андроида
 $ adb shell                 # оказаться в оболочке Андроида
 
 Soft
@@ -50,3 +51,5 @@ Changing lock screen wallpaper on CyanogenMod 12 ROMs
 * Now, navigate to the folder where your desired wallpaper is and rename it “keyguard_wallpaper”.
 * Move the file to /data/system/users/0 and set the correct permissions.
 * Reboot your phone, lock the screen and enjoy the new lock screen wallpaper.
+
+Для удаления GAPPS удалить файл gapps из папки /system/add-on.d

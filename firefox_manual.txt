@@ -14,7 +14,7 @@ Gray icon on inactive tabs - https://userstyles.org/styles/116425/gray-icon-on-i
 Стиль для userstyle.org - https://userstyles.org/styles/37035/github-dark
 friGate - https://addons.mozilla.org/ru/firefox/addon/frigate/
 NoScripti - https://addons.mozilla.org/en-US/firefox/addon/noscript/
-Anti AdBlock Killer - блокирует блокировщики блокировщика рекламы
+Anti AdBlock Killer - https://github.com/reek/anti-adblock-killer
 Adblock Plus - https://addons.mozilla.org/En-us/firefox/addon/adblock-plus/?src=dp-dl-dependencies
 µBlock - https://addons.mozilla.org/en-US/firefox/addon/ublock/
 YouTube Flash Video Player - https://addons.mozilla.org/ru/firefox/addon/youtube-flash-video-player/

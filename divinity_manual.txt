@@ -67,3 +67,11 @@
     Любые металл. доспехи + Обломки = +Защита
     Любые тканые доспехи + Куски кожи = +Защита
     Любые тканые доспехи + Металлолом = +Защита
+
+Моды
+----
+Доспехи - http://www.nexusmods.com/divinityoriginalsin/mods/54/?
+Установка:
+1) Скопировать папку с модом в .local/share/Steam/steamapps/common/Divinity Original Sin Enhanced Edition/Data
+2) Переименовать папку Public/Main в Public/Shared
+3) Удалить подпапку /Public/Shared/Assets/Textures/Icons

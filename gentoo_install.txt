@@ -60,7 +60,12 @@ nameserver 8.8.8.8
 
 Добавим GENTOO_MIRRORS и SYNC соответственно
 # mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
-# mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
+# mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
+
+Или просто в make.conf
+------------------------------
+GENTOO_MIRRORS="http://mirror.yandex.ru/gentoo-distfiles/"
+----------------------------------
 
 cp -L /etc/resolv.conf /mnt/gentoo/etc/ - информация о DNS-серверах
 ключ -L не дает скопировать символьную ссылку. Только собственно файл

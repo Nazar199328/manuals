@@ -19,7 +19,7 @@ Device     Boot  Size     Type
 # mkfs.ext4 -L root /dev/sda5
 # mkfs.ext4 -L home /dev/sda6
 
-# mkswap /dev/sda3
+# mkswap -L swap /dev/sda3
 # swapon /dev/sda3
 
 # mkdir /mnt/gentoo
@@ -30,11 +30,13 @@ Device     Boot  Size     Type
 
 3. Установка stage3
 -------------------
-# date
-# date MMDDhhmmYYYY
-#cd /mnt/gentoo
+# cd /mnt/gentoo
 
-Далее качаем архив stage3 с зеркала Яндекса и распаковываем:
+Качаем stage3
+# links http://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/
+Чтобы скачать нажимаем букву "d"
+
+Распаковываем архив:
 #tar xvjpf stage3-*.tar.bz2 --xattrs
 --xattrs будет включать расширенные атрибуты, хранящиеся в архиве.
 
@@ -49,7 +51,6 @@ MAKEOPTS="-j5"
 --------------------------------------
 -pipe - использование каналов вместо временных файлов. Требует много памяти
 -march - имя целевой архитектуры. native означает текущую архитектуру
-
 
 4. Установка базовой системы.
 -----------------------------
@@ -82,16 +83,20 @@ cp -L /etc/resolv.conf /mnt/gentoo/etc/ - информация о DNS-серве
 # source /etc/profile
 # export PS1="(chroot) $PS1"
 
-Установим portage
+Установим portage:
+# mkdir /usr/portage
 # emerge-webrsync
+
+Обновим portage:
+emerge --sync
 
 Выберем профиль системы:
 # eselect profile list
-
-# eselect profile set <номер профиля с  systemd>
+# eselect profile set 1
 
 Посмотрим возможные use-флаги:
 # emerge --info | grep ^USE
+
 Описание всех флагов:
 less /usr/portage/profiles/use.desc
 
@@ -99,7 +104,7 @@ less /usr/portage/profiles/use.desc
 nano -w /etc/portage/make.conf
 -------------------------------
 USE="X -gtk gtk2 gtk3 -gnome -kde qt4 udev /
-    mmx sse sse2 ssse3 alsa acpi dbus systemd /
+    mmx sse sse2 ssse3 alsa acpi dbus /
     -pulseaudio"
 
 Временная зона:
@@ -136,75 +141,213 @@ en_US ISO-8859-1
 # cd /usr/src/linux
 # make menuconfig
 
-Далее нужно сконфигурировать ядро, как написано в handbook с учетом статьи
-про systemd.
+--------------------------------------------------------------
+Далее нужно сконфигурировать ядро.
+--------------------------------------------------------------
+General setup --->
+Включить поддержку swap:
+[*] Support for paging of anonymous memory (swap)
 
+Сохранять настройки в .config:
+<*> Kernel .config support
+
+Иметь возможность брать настройки из /proc/config.gz:
+[*] Enable access to .config through /proc/config.gz
+
+Поддержка initrd/initramfs:
+[*] Initial RAM filesystem and RAM disk (initramfs/initrd) support
+
+Пусть небходимые устроиства монтируются в /dev на этапе загрузки:
+Device Drivers --->
+  Generic Driver Options --->
+    [*] Maintain a devtmpfs filesystem to mount at /dev
+    [ ]   Automount devtmpfs at /dev, after the kernel mounted the rootfs
+
+Указать поддерживаемые файловые системы. Также выбрать виртуальные системы и /proc
+файловые системы.
+File systems --->
+(Select one or more of the following options as needed by your system)
+  <*> Second extended fs support
+  <*> Ext3 journalling file system support
+  <*> The Extended 4 (ext4) filesystem
+  <*> Reiserfs support
+  <*> JFS filesystem support
+  <*> XFS filesystem support
+  ...
+  Pseudo Filesystems --->
+    [*] /proc file system support
+    [*] Virtual memory file system support (former shm fs)
+
+Включить поддержку многоядерности процессора:
+Processor type and features  --->
+  [*] Symmetric multi-processing support
+
+Поддержка evdev (драйвер для клавиатур, мышей и т.д)
+Device Drivers  --->
+    Input device support  --->
+        <*>   Event interface
+
+Для некоторых мышей нужно:
+Device Drivers  --->
+    [*] USB support  --->
+        [*]   Improved Transaction Translator scheduling
+
+Отключим поддержку джойстика на уровне ядра:
+Device Drivers  --->
+     Generic Driver Options --->
+         Input device support  --->
+
+Включить поддержку usb:
+Device Drivers --->
+  [*] HID Devices  --->
+    <*>   USB Human Interface Device (full HID) support
+
+Включить IA32 Emulation для поддержку 32-битных приложений:
+Processor type and features  --->
+   [ ] Machine Check / overheating reporting 
+   [ ]   Intel MCE Features
+   [ ]   AMD MCE Features
+  Processor family (AMD-Opteron/Athlon64)  --->
+    ( ) Opteron/Athlon64/Hammer/K8
+    ( ) Intel P4 / older Netburst based Xeon
+    ( ) Core 2/newer Xeon
+    ( ) Intel Atom
+    ( ) Generic-x86-64
+Executable file formats / Emulations  --->
+   [*] IA32 Emulation
+
+Если используется UEFI, включить UEFI и GPT как написано в handbook
+
+Включить в ядро ALSA и выбрать поддержку всех кодеков:
+Device Drivers --->
+    <*> Sound card support
+        <*> Advanced Linux Sound Architecture --->
+            [*] PCI sound devices  --->
+
+                Select the driver for your audio controller, e.g.:
+                <*> Intel HD Audio  ---> (snd-hda-intel)
+                    Select a codec or enable all and let the generic parse choose the right one:
+                    [*] Build Realtek HD-audio codec support
+                    [*] ...
+                    [*] Build Silicon Labs 3054 HD-modem codec support
+                    [*] Enable generic HD-audio codec parser
+
+Для NVIDIA:
+------------
+
+Включить поддержку модульности ядра:
+[*] Enable loadable module support --->
+
+Включить поддержку MTRR:
+Processor type and features --->
+   [*] MTRR (Memory Type Range Register) support
+
+Включить поддержку AGP
+Device Drivers --->
+   Graphics support --->
+      -*- /dev/agpgart (AGP Support) --->
+
+Для x64 процессор внутриядерный framebuffer (кэширование видео в RAM) конфликтует с 
+бинарным драйвером NVIDIA, поэтому отключаем framebuffer nvidia:  
+Device Drivers --->
+    Graphics support --->
+        Frame buffer Devices --->
+            <*> Support for frame buffer devices --->
+            < >   nVidia Framebuffer Support
+            < >   nVidia Riva support
+
+Отключаем поддержку свободного драйвера:
+Device Drivers  --->
+    Graphics support  --->
+        <*> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) --->
+            < > Nouveau (nVidia) cards
+
+Для гибридной графики включить следующие опции:
+Device Drivers  --->
+   Graphics Support  --->
+      Direct Rendering Manager (Xfree86 4.1.0 and higher DRI support)   --->
+         [*]   Enable legacy fbdev support for your modesetting driver 
+      <*> Intel 8xx/9xx/G3x/G4x/HD Graphics
+      [*]   Enable preliminary support for prerelease Intel hardware by default
+
+---------------------------------------------------------
 Скомпилируем ядро с модулями:
-#make && make modules_install
+# make && make modules_install
 
 Скомпилированное ядро переместим в /boot:
-#make install
+# make install
 
 Установим initramfs - an initial ram-based file system:
-#emerge genkernel
-#genkernel --install initramfs
+# emerge genkernel
+# genkernel --install initramfs
 
-Пересоберем систему с systemd и удалим udev, поскольку он входит в systemd:
-#emerge -avDN @world
-#emerge --deselect sys-fs/udev
+Установим требуемый софт:
+# emerge -av net-misc/dhcpcd
+# emerge -av sys-boot/grub # установим grub2
+# emerge -av sys-fs/ntfs3g # поддержка NTFS
+# emerge -av sys-boot/os-prober # для того, чтобы grub нашел винду
+# emerge --ask dev-vcs/git
+# emerge --ask app-portage/gentoolkit # equery, euse и др.
+# emerge --ask x11-drivers/nvidia-drivers
 
 4. Конфигурирование системы.
 ---------------------------
 
 Настроим монтирование ФС:
-#nano -w /etc/fstab
+# nano -w /etc/fstab
 -------------------
 /dev/sda2   /boot        ext2    defaults,noatime     0 2
 /dev/sda3   none         swap    sw                   0 0
 /dev/sda5   /            ext4    noatime              0 1
 /dev/sda6   /home        ext4    noatime              0 1
+Или скопируем с гитхаба
 
-Определим имя хоста
-#hostnamectl set-hostname <HOSTNAME>
+Укажем имя хоста:
+# nano -w /etc/conf.d/hostname
+-------------------------------
+hostname="gentoo"
 
-Настроим интернет
-Установим dhcp-клиент
-#emerge --ask net-misc/dhcpcd
+Далее, настроим интернет.
+# nano -w /etc/conf.d/net
+------------------------
+config_eth0="dhcp"
 
-Узнаем название интерфейса
-#ifconfig
-
-Опустим интерфейс
-#ip link set enp14s0 down
-
-Создадим шаблон для профиля
-#cd /etc/netctl
-#cp examples/ethernet-dhcp eth_net
-
-Отредактируем профиль
-#nano -w  eth_net
-
-Стартанем профиль и добавим его в автозагрузку
-#netctl start eth_net
-#netctl enable eth_net
+# cd /etc/init.d
+# ln -s net.lo net.eth0
+# rc-update add net.eth0 default
+# cd /
 
 Создадим пароль рута:
 # passwd
 
+Настроим параметр часов. Можно написать utc, если аппаратные часы настроены на utc.
+Но при дуалбуте с вяндой лучше написать local
+# nano /etc/conf.d/hwclock
+------------------------
+clock="local"
+
 5. Конфигурирование grub:
-# emerge --ask sys-boot/grub # установим grub2
-# emerge -av sys-fs/ntfs3g # поддержка NTFS
-# emerge -av sys-boot/os-prober # для того, чтобы grub нашел винду
 # grub2-install /dev/sda
 
 # nano -w /etc/default/grub
 -------------------------------
-# Append parameters to the linux kernel command line
-GRUB_CMDLINE_LINUX="init=/usr/lib/systemd/systemd"
+
 
 Генерируем конфиг
 # grub2-mkconfig -o /boot/grub/grub.cfg
 # Grub должен найти: vmlinuz, initramfs, виндовс
+
+
+Настроим нвидию
+# nano -w /etc/conf.d/modules
+--------------------------
+modules="nvidia"
+
+# rc-update add modules boot
+
+
+
+
 
 7. Перезагрузка системы.
 Выйдем из chroot и отмонтируем разделы
@@ -247,9 +390,3 @@ enable_xauth=0
 # nano -w /etc/hosts
 127.0.0.2        machinename.domain         machinename
 Вместо machinename подставить имя хоста
-
-
-7. Поддержка NVIDIA
--------------------
-Установка bumblebee: http://blog.fkmclane.net/nvidia-optimus-with-bumblebee-in-gentoo/
-В ядре включить поддержку модулей (скорее всего она уже включена). Драйвер будет установлен как МОДУЛЬ. Включать в ядре поддержку nvidia и гибдридной графики НЕ НАДО!!

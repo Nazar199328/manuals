@@ -42,6 +42,13 @@ Device     Boot  Size     Type
 
 http://linuxforum.ru/topic/476 - примеры make.conf
 
+Настоим кейбинды nano:
+# cd /usr/share/nano/
+# curl -O https://raw.githubusercontent.com/lazyfox81/dotfiles/master/keybinds.nanorc
+# nano -w /etc/nanorc
+------------------------------
+include "/usr/share/nano/*.nanorc"
+
 Конфигурируем опции компиляции:
 nano -w /mnt/gentoo/etc/portage/make.conf
 -------------------------------------
@@ -294,13 +301,17 @@ Device Drivers  --->
 ---------------------------
 
 Настроим монтирование ФС:
+# mkdir /media/{usb_fat, usb_ntfs}
 # nano -w /etc/fstab
 -------------------
 /dev/sda2   /boot        ext2    defaults,noatime     0 2
 /dev/sda3   none         swap    sw                   0 0
 /dev/sda5   /            ext4    noatime              0 1
 /dev/sda6   /home        ext4    noatime              0 1
-Или скопируем с гитхаба
+
+/dev/sda1 /media/windows   ntfs-3g   defaults,uid=1000,gid=100,fmask=0133,dmask=0022   0 0
+/dev/sdb1 /media/usb_fat vfat user,fmask=0133,dmask=0022,noauto,noatime,flush 0 0
+/dev/sdb1 /media/usb_ntfs ntfs-3g user,uid=1000,gid=100,fmask=0133,dmask=0022,noauto,noatime,flush  0 0
 
 Укажем имя хоста:
 # nano -w /etc/conf.d/hostname
@@ -337,17 +348,14 @@ clock="local"
 # grub2-mkconfig -o /boot/grub/grub.cfg
 # Grub должен найти: vmlinuz, initramfs, виндовс
 
-
-Настроим нвидию
+Настроим NVIDIA:
 # nano -w /etc/conf.d/modules
 --------------------------
 modules="nvidia"
 
 # rc-update add modules boot
-
-
-
-
+# cd /etc/X11/
+# curl -O https://raw.githubusercontent.com/lazyfox81/xorg/master/xorg.conf
 
 7. Перезагрузка системы.
 Выйдем из chroot и отмонтируем разделы
@@ -361,7 +369,7 @@ cdimage ~# reboot
 8. Окончание установки.
 
 Залогинимся под root и создадим пользователя:
-#useradd -m -G users,wheel,audio,cdrom,usb   -s /bin/bash mikhail
+# useradd -m -G users,wheel,audio,cdrom,usb   -s /bin/bash mikhail
 
 Удалим stage3:
 #rm /stage3-*.tar.bz2*

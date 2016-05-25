@@ -1,3 +1,4 @@
+1
 1. Скачивание образа и создание загрузочной флешки
 --------------------------------------------------
 http://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/ - зеркало яндекса для скачивания iso и stage3
@@ -59,6 +60,9 @@ MAKEOPTS="-j5"
 -pipe - использование каналов вместо временных файлов. Требует много памяти
 -march - имя целевой архитектуры. native означает текущую архитектуру
 
+Или лучше скопировать с флехи:
+cp /run/media/guest/0477-8AE1/make.conf /mnt/gentoo/etc/portage/make.conf
+
 4. Установка базовой системы.
 -----------------------------
 nano -w /etc/resolve.conf
@@ -68,7 +72,7 @@ nameserver 8.8.8.8
 
 Добавим GENTOO_MIRRORS и SYNC соответственно
 # mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
-# mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
+# mirrorselect -i -r -o >> /mnt/gentoo/etc/portage/make.conf
 
 Или просто в make.conf
 ------------------------------
@@ -85,6 +89,10 @@ cp -L /etc/resolv.conf /mnt/gentoo/etc/ - информация о DNS-серве
 # mount --rbind /dev /mnt/gentoo/dev
 # mount --make-rslave /mnt/gentoo/dev
 
+
+Применим для новой генты наши нано-кейбинды:
+# cp /usr/share/nano/keybinds.nanorc /mnt/gentoo/usr/share/nano/
+
 Переходим в свежеустановленную систему (chroot):
 # chroot /mnt/gentoo /bin/bash
 # source /etc/profile
@@ -99,7 +107,7 @@ emerge --sync
 
 Выберем профиль системы:
 # eselect profile list
-# eselect profile set 1
+# eselect profile set 3
 
 Посмотрим возможные use-флаги:
 # emerge --info | grep ^USE
@@ -118,7 +126,7 @@ USE="X -gtk gtk2 gtk3 -gnome -kde qt4 udev /
 # echo "Europe/Moscow" > /etc/timezone
 # emerge --config sys-libs/timezone-data
 
-#nano -w /etc/locale.gen
+# nano -w /etc/locale.gen
 -------------------------
 en_US.UTF-8 UTF-8
 en_US ISO-8859-1
@@ -127,6 +135,7 @@ en_US ISO-8859-1
 # locale-gen
 
 # eselect locale list
+
 Выберем английскую utf-8 локаль:
 # eselect locale set <номер локали>
 
@@ -143,6 +152,9 @@ en_US ISO-8859-1
 
 Установим пакет, содержащий утилиту lspci
 # emerge --ask sys-apps/pciutils
+
+Посмотрим список pci-устроиств
+# lspci
 
 Перейдем в папку с симлинком и запустим конфигуратор ядра:
 # cd /usr/src/linux
@@ -164,7 +176,31 @@ General setup --->
 Поддержка initrd/initramfs:
 [*] Initial RAM filesystem and RAM disk (initramfs/initrd) support
 
-Пусть небходимые устроиства монтируются в /dev на этапе загрузки:
+Включить поддержку многоядерности процессора:
+Processor type and features  --->
+  [*] Symmetric multi-processing support
+
+Отключим поддержку IPv6:
+Networking support --->
+    Networking options --->
+         < >   The IPv6 protocol  ---- 
+
+Инфракрасный порт не нужен:
+< >   IrDA (infrared) subsystem support  --->
+
+Синезуб не нужен:
+< >   Bluetooth subsystem support  --->
+        Bluetooth device drivers  --->
+
+Клавиша включения wifi:
+<*>   RF switch subsystem support  --->
+
+Поддержка стандарта 802.11 для беспроводных сетей:
+-*-   Wireless  --->
+    <M> cfg80211 - wireless configuration API
+    [*] cfg80211 wireless extensions compatibility
+
+Пусть небходимые устройства монтируются в /dev на этапе загрузки:
 Device Drivers --->
   Generic Driver Options --->
     [*] Maintain a devtmpfs filesystem to mount at /dev
@@ -175,51 +211,72 @@ Device Drivers --->
 File systems --->
 (Select one or more of the following options as needed by your system)
   <*> Second extended fs support
-  <*> Ext3 journalling file system support
+  < > Ext3 journalling file system support
   <*> The Extended 4 (ext4) filesystem
-  <*> Reiserfs support
-  <*> JFS filesystem support
-  <*> XFS filesystem support
+  < > Reiserfs support
+  < > JFS filesystem support
+  < > XFS filesystem support
   ...
   Pseudo Filesystems --->
     [*] /proc file system support
-    [*] Virtual memory file system support (former shm fs)
+    [*] Tmpfs virtual memory file system support (former shm fs)
 
-Включить поддержку многоядерности процессора:
-Processor type and features  --->
-  [*] Symmetric multi-processing support
-
-Поддержка evdev (драйвер для клавиатур, мышей и т.д)
+Поддержка evdev (EVent DEVice)(драйвер для клавиатур, мышей и т.д)
 Device Drivers  --->
     Input device support  --->
         <*>   Event interface
+
+Отключим поддержку джойстиков, тачскринов и каких-то таблеток на уровне ядра:
+Device Drivers  --->
+    Input device support  --->
+         [ ]   Joysticks/Gamepads  ---- 
+         [ ]   Tablets  ----
+         [ ]   Touchscreens  ----
+
+Для работы synaptic нужно-таки включить:
+Device Drivers  --->
+   Input device support  --->
+      <*>   Event interface
+      [*]   Mice  --->
+         <*>   PS/2 mouse
+
+Отключим поддержку макинтоша:
+Device Drivers  --->
+     [ ] Macintosh device drivers  ----
+
+Включить поддержку HID (необходимо для  usb клавиатур, мышей etc):
+Device Drivers --->
+  [*] HID Devices  --->
+    <*>   USB Human Interface Device (full HID) support
+
+Включим мышку A4tech:
+Device Drivers --->
+   HID support  --->
+      Special HID drivers  ---> 
+          <*> A4 tech mice
 
 Для некоторых мышей нужно:
 Device Drivers  --->
     [*] USB support  --->
         [*]   Improved Transaction Translator scheduling
 
-Отключим поддержку джойстика на уровне ядра:
+Включим поддержку usb 3.0:
 Device Drivers  --->
-     Generic Driver Options --->
-         Input device support  --->
-
-Включить поддержку usb:
-Device Drivers --->
-  [*] HID Devices  --->
-    <*>   USB Human Interface Device (full HID) support
-
+    [*] USB support  --->
+         <*>     xHCI HCD (USB 3.0) support  
+         <*>       Generic xHCI driver for platform device
+ 
 Включить IA32 Emulation для поддержку 32-битных приложений:
 Processor type and features  --->
-   [ ] Machine Check / overheating reporting 
-   [ ]   Intel MCE Features
+   [*] Machine Check / overheating reporting 
+   [*]   Intel MCE Features
    [ ]   AMD MCE Features
   Processor family (AMD-Opteron/Athlon64)  --->
     ( ) Opteron/Athlon64/Hammer/K8
     ( ) Intel P4 / older Netburst based Xeon
     ( ) Core 2/newer Xeon
     ( ) Intel Atom
-    ( ) Generic-x86-64
+    (*) Generic-x86-64
 Executable file formats / Emulations  --->
    [*] IA32 Emulation
 
@@ -238,6 +295,19 @@ Device Drivers --->
                     [*] ...
                     [*] Build Silicon Labs 3054 HD-modem codec support
                     [*] Enable generic HD-audio codec parser
+General setup --->
+    [*] System V IPC
+
+Для интерфейса Ethernet:
+Device Drivers  --->
+     [*] Network device support --->
+            [*]   Ethernet driver support  --->
+                     [*]   Atheros devices
+                     <*>     Atheros L2 Fast Ethernet support 
+		     <*>     Atheros/Attansic L1 Gigabit Ethernet support
+                     <*>     Atheros L1E Gigabit Ethernet support
+                     <*>     Atheros L1C Gigabit Ethernet support
+                     <*>     Qualcomm Atheros AR816x/AR817x support
 
 Для NVIDIA:
 ------------
@@ -293,9 +363,9 @@ Device Drivers  --->
 # emerge -av sys-boot/grub # установим grub2
 # emerge -av sys-fs/ntfs3g # поддержка NTFS
 # emerge -av sys-boot/os-prober # для того, чтобы grub нашел винду
-# emerge --ask dev-vcs/git
-# emerge --ask app-portage/gentoolkit # equery, euse и др.
-# emerge --ask x11-drivers/nvidia-drivers
+# emerge -av dev-vcs/git
+# emerge -av app-portage/gentoolkit # equery, euse и др.
+# emerge -av x11-drivers/nvidia-drivers
 
 4. Конфигурирование системы.
 ---------------------------
@@ -319,13 +389,18 @@ Device Drivers  --->
 hostname="gentoo"
 
 Далее, настроим интернет.
+Имя сетевого интерфейса:
+# ifconfig -a
+
+# dhcpcd enp14s0
+
 # nano -w /etc/conf.d/net
 ------------------------
-config_eth0="dhcp"
+config_enp14s0="dhcp"
 
 # cd /etc/init.d
-# ln -s net.lo net.eth0
-# rc-update add net.eth0 default
+# ln -s net.lo net.enp14s0
+# rc-update add net.enp14s0 default
 # cd /
 
 Создадим пароль рута:
@@ -362,7 +437,7 @@ modules="nvidia"
 # exit
 cdimage ~# cd
 cdimage ~# umount -l /mnt/gentoo/dev{/shm,/pts,}
-cdimage ~# umount /mnt/gentoo{/boot,/sys,/proc,}
+cdimage ~# umount -l /mnt/gentoo{/boot,/sys,/proc,}
 cdimage ~# reboot
 
 

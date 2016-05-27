@@ -221,6 +221,17 @@ File systems --->
     [*] /proc file system support
     [*] Tmpfs virtual memory file system support (former shm fs)
 
+
+NTFS support:
+File systems  --->
+    <*> FUSE (Filesystem in Userspace) support
+
+File systems  --->
+    DOS/FAT/NT Filesystems  --->
+        <*> NTFS file system support
+        <*>   NTFS write support
+
+
 Поддержка evdev (EVent DEVice)(драйвер для клавиатур, мышей и т.д)
 Device Drivers  --->
     Input device support  --->
@@ -366,6 +377,7 @@ Device Drivers  --->
 # emerge -av dev-vcs/git
 # emerge -av app-portage/gentoolkit # equery, euse и др.
 # emerge -av x11-drivers/nvidia-drivers
+# emerge -av media-sound/alsa-tools
 
 4. Конфигурирование системы.
 ---------------------------

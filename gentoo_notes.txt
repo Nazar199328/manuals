@@ -40,13 +40,18 @@
 # etcat -v firefox # Вывести все версии пакета.
 # etcat -u samba # Какими настройками USE (только из влияющих на этот пакет) была установлена программа.
 # echo «category/moo some flags» >> /etc/portage/package.use # Добавление используемого флага
+
 # etc-update # Обновление конфигурационных файлов.
 # dispatch-conf # Обновление конфигурационных файлов.
+
+
 gentoolkit # основные утилиты: euse, equery, eclean, quickpkg…
 epm # аналог equery
 esearch # Быстрое индексирование пакетов, для быстрого поиска.
 
 # systemctl restart systemd-networkd.service # рестарт юнита интернета
+
+
 # layman -L # все доступные оверлеи
 # layman -l # подключенные оверлеи
 # layman -a overlay # подключить оверлей overlay

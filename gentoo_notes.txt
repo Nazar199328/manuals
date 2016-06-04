@@ -11,10 +11,15 @@
 # qlist -I # список всех установленных пакетов
 
 # equery uses firefox # с какими флагами был установлен пакет firefox.
+# equery u firefox # посмотреть значения USE флагов для firefox.
+
 # equery files firefox # какие файлы принадлежат пакету firefox.
+# equery f firefox # какие файлы принадлежат пакету firefox.
+
+# equery d foo # какому пакету принадлежит файл foo
+
 # equery depgraph firefox # показать дерево зависимостей пакета firefox
 # equery -q d python # какие установленные пакеты зависят от python.
-# equery u firefox # посмотреть значения USE флагов для firefox.
 # quickpkg firefox # Собираем бинарный пакет с уже установленного в системе.
 # eclean -p distfiles # Выявляем устаревшие исходник.
 # eclean distfiles # Избавляемся от устаревших исходников, чистим /usr/portage/distfiles.

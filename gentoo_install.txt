@@ -456,8 +456,10 @@ cdimage ~# reboot
 8. Окончание установки.
 
 Залогинимся под root и создадим пользователя:
-# useradd -m -G users,wheel,audio,cdrom,usb   -s /bin/bash mikhail
+# useradd -m -G users,wheel,video,audio,cdrom,usb   -s /bin/bash mikhail
 
+video - необходима для поддержки opengl
+audio - необходима для поддержки alsa
 Удалим stage3:
 #rm /stage3-*.tar.bz2*
 

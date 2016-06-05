@@ -16,7 +16,8 @@
 # equery files firefox # какие файлы принадлежат пакету firefox.
 # equery f firefox # какие файлы принадлежат пакету firefox.
 
-# equery d foo # какому пакету принадлежит файл foo
+# equery belongs foo # какому пакету принадлежит файл foo
+# equery b foo # какому пакету принадлежит файл foo
 
 # equery depgraph firefox # показать дерево зависимостей пакета firefox
 # equery -q d python # какие установленные пакеты зависят от python.
@@ -34,8 +35,11 @@
 # emerge —K samba # Аналог -k, но если нужной прекомпиленной версии нет, то используется какая есть
 # emerge samba # Установка пакета.
 # emerge -u bind9 # Обновляем пакет.
-# emerge --deselect sys-fs/udev # Удаление пакета
-# emerge -Cpv foo # Удаление пакета.
+
+# emerge --deselect sys-fs/udev # Удаление пакета из world файла, включает --unmerge, --dep-clean
+# В файле /var/lib/portage/world список явным образом установленных пакетов
+# emerge -Cpv foo # Удаление пакета. То же что --unmerge
+# emerge --unmerge -pv foo # Удаление пакета.
 
 
 # emerge -uavDN @system # обновить системные пакеты с новыми флагами и зависимостями

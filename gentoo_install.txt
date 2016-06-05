@@ -370,6 +370,7 @@ Device Drivers  --->
 # genkernel --install initramfs
 
 Установим требуемый софт:
+--------------------------
 # emerge -av net-misc/dhcpcd
 # emerge -av sys-boot/grub # установим grub2
 # emerge -av sys-fs/ntfs3g # поддержка NTFS
@@ -378,6 +379,9 @@ Device Drivers  --->
 # emerge -av app-portage/gentoolkit # equery, euse и др.
 # emerge -av x11-drivers/nvidia-drivers
 # emerge -av media-sound/alsa-tools
+# emerge -av dev-python/termcolor # цветной выхлоп для питона
+# emerge -av dev=python/pygments  # цветной выхлоп в консоль, нужен для colorize
+# emerge -av gst-plugins-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly # вместо flash
 
 4. Конфигурирование системы.
 ---------------------------

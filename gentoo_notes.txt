@@ -26,7 +26,8 @@
 # revdep-rebuild # Пересборка всех зависимостей по пакетам.
 # emerge --search pdf # Поиск пакета, в названии котрого есть pdf
 # emerge -p -f bind9 # Смотрим url откуда можно с тянуть sources.
-# emerge -pe bind9 # Смотрим зависимости.
+
+# emerge -pe bind9 # Смотрим зависимости. Флаг -e - пересобрать зависимости
 # emerge -pu samba # Смотрим какие пакеты будут обновлены.
 # emerge -f samba # Качаем только исходники по пакету без установки.
 # emerge —k samba # установка прекомпиленный пакет из
@@ -36,8 +37,10 @@
 # emerge --deselect sys-fs/udev # Удаление пакета
 # emerge -Cpv foo # Удаление пакета.
 
+
 # emerge -uavDN @system # обновить системные пакеты с новыми флагами и зависимостями
 # emerge -uavDN @world # обновить мир с новыми флагами и зависимостями
+# emerge --update --newuse --deep @world # обновить мир
 # emerge -a --depclean # Удаляем ненужные пакеты из системы, чистим систему.
 # emerge -pv --depclean foo # Проверка зависимостей для удаляемого пакета
 # emerge -eav @world # Пересборка системы

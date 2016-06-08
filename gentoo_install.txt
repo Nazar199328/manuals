@@ -1,4 +1,3 @@
-1
 1. Скачивание образа и создание загрузочной флешки
 --------------------------------------------------
 http://mirror.yandex.ru/gentoo-distfiles/releases/amd64/autobuilds/ - зеркало яндекса для скачивания iso и stage3
@@ -381,8 +380,8 @@ Device Drivers  --->
 # emerge -av media-sound/alsa-tools
 # emerge -av dev-python/termcolor # цветной выхлоп для питона
 # emerge -av dev=python/pygments  # цветной выхлоп в консоль, нужен для colorize
-# emerge -av gst-plugins-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly # вместо flash
-
+# emerge -av gst-plugins-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly # вместо flash для 
+# gstreamer. Qutebrowser и qtwebkit собрать с поддержкой gstreamer
 4. Конфигурирование системы.
 ---------------------------
 

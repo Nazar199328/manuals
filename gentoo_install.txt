@@ -367,7 +367,7 @@ Power management and ACPI options  --->
 
 	CPU Frequency scaling  --->
          [*] CPU Frequency scaling
-             Default CPUFreq governor (performance)  --->
+             Default CPUFreq governor (ondemand)  --->
              -*-   'performance' governor                     
              <*>   'powersave' governor                                   
              <*>   'userspace' governor for userspace frequency scaling   

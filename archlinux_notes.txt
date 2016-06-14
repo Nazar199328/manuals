@@ -723,3 +723,8 @@ https://wiki.archlinux.org/index.php/Pacman/Package_signing#Adding_unofficial_ke
 $ nitrogen /path/to/image/directory/ # порграмма для установки обоев
 
 grub: если в меню загрузчика нажать e (edit) можно отредактировать параметры для текущей загрузки.
+
+Кодировки
+---------
+$ file -i file.txt # узнать кодировку файла
+$ iconv -f cp1251 -t utf8 file1.txt -o file2.txt # перекодировать file1.txt; результат в file2.txt

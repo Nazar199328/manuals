@@ -357,6 +357,33 @@ Device Drivers  --->
       <*> Intel 8xx/9xx/G3x/G4x/HD Graphics
       [*]   Enable preliminary support for prerelease Intel hardware by default
 
+
+CPU frequency scaling (управление частотой процессора)
+---------------------------------
+(ставить обязательно, иначе частота процессора будет 1200 MHz, но можно уже после установки системы)
+Power management and ACPI options  --->
+     [*] ACPI (Advanced Configuration and Power Interface) Support  --->
+         <*>   Processor
+
+	CPU Frequency scaling  --->
+         [*] CPU Frequency scaling
+             Default CPUFreq governor (performance)  --->
+             -*-   'performance' governor                     
+             <*>   'powersave' governor                                   
+             <*>   'userspace' governor for userspace frequency scaling   
+             <*>   'ondemand' cpufreq policy governor                     
+             < >   'conservative' cpufreq governor                        
+                   *** CPU frequency scaling drivers ***                  
+             [*]   Intel P state control                                  
+             <*>   Processor Clocking Control interface driver            
+             <*>   ACPI Processor P-States driver                         
+             [*]     Legacy cpb sysfs knob support for AMD CPUs           
+             < >   AMD Opteron/Athlon64 PowerNow!                         
+             < >   AMD frequency sensitivity feedback powersave bias      
+             <*>   Intel Enhanced SpeedStep (deprecated)                  
+             <*>   Intel Pentium 4 clock modulation                       
+                    *** shared options ***   	
+
 ---------------------------------------------------------
 Скомпилируем ядро с модулями:
 # make && make modules_install
@@ -438,7 +465,7 @@ clock="local"
 # grub2-mkconfig -o /boot/grub/grub.cfg
 # Grub должен найти: vmlinuz, initramfs, виндовс
 
-Настроим NVIDIA:
+Добавим нвидию в modules (иначе придется загружать вручную после каждой перезагрузки):
 # nano -w /etc/conf.d/modules
 --------------------------
 modules="nvidia"

@@ -1,0 +1,8 @@
+falloutNV_manual.txt
+--------------------
+
+Настройки префикса wine
+-----------------------
+glsl=enabled
+orm=fbo
+ddl=opengl

@@ -35,6 +35,18 @@ https://userstyles.org/styles/102262/twily-s-powerline-firefox-css - миним�
 
 В Classic theme restorer во вкладке toolbar2 убать тени, поставив галку на hide shadow for toolbar text and tab text
 
+Настройка GUI
+-------------
+http://faugo.com/flat-underline/ - красивые табы
+http://www.mozillalabs.com/en-US/oneliner/ - шапка в одну линию
+https://userstyles.org/styles/127973/material-firefox-about-home - стартовая страница Firefox
+
+
+
+
+
+
+
 Настройка видео
 ---------------
  sudo pacman -S  gst-libav  # установить gstreamer-libav

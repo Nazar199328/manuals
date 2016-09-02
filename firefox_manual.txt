@@ -1,4 +1,12 @@
-Список плагинов
+firefox_manual.txt
+
+Настройка GUI
+-------------
+http://faugo.com/flat-underline/ - красивые табы
+http://www.mozillalabs.com/en-US/oneliner/ - шапка в одну линию
+https://userstyles.org/styles/127973/material-firefox-about-home - стартовая страница Firefox
+
+Другие плагины
 ---------------
 Vimerator - https://addons.mozilla.org/en-US/firefox/addon/vimperator/
 Stylish
@@ -22,7 +30,7 @@ arc-firefox-theme - https://github.com/horst3180/arc-firefox-theme
 https://userstyles.org/styles/102262/twily-s-powerline-firefox-css - минималистичная тема для firefox
 
 Добавить в Stylish фикс для ЛОРа (убирает скругления)
-
+	   	   -------------
 @-moz-document domain("linux.org.ru") {
  * {
   border-radius:0!important;
@@ -34,18 +42,6 @@ https://userstyles.org/styles/102262/twily-s-powerline-firefox-css - миним�
 }
 
 В Classic theme restorer во вкладке toolbar2 убать тени, поставив галку на hide shadow for toolbar text and tab text
-
-Настройка GUI
--------------
-http://faugo.com/flat-underline/ - красивые табы
-http://www.mozillalabs.com/en-US/oneliner/ - шапка в одну линию
-https://userstyles.org/styles/127973/material-firefox-about-home - стартовая страница Firefox
-
-
-
-
-
-
 
 Настройка видео
 ---------------

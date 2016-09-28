@@ -1,0 +1,12 @@
+Порядок установки модов:
+1. Gothic 3 
+2. Community patch 1.75 
+   http://www.worldofgothic.de/dl/download_478.htm
+3. Пакет обновлений 1.04 для коммюнити-патча 1.75
+   http://www.worldofgothic.de/dl/download_523.htm
+   http://worldofplayers.ru/threads/34981/page-28#post-892328 - последняя версия
+4. Questpaket Version 4.2 
+5. Адаптация квестпакета к патчу 1.75 installieren.
+   http://www.worldofgothic.de/dl/download_478.htm
+6. Контентмод CM 2.5
+   http://www.worldofgothic.de/dl/download_482.htm

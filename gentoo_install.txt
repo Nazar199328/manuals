@@ -409,6 +409,8 @@ Power management and ACPI options  --->
 # emerge -av dev=python/pygments  # цветной выхлоп в консоль, нужен для colorize
 # emerge -av gst-plugins-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly # вместо flash для 
 # gstreamer. Qutebrowser и qtwebkit собрать с поддержкой gstreamer
+# emerge -av gnome-themes-standard # стандартные темы gtk, ставить обязательно!!
+
 4. Конфигурирование системы.
 ---------------------------
 

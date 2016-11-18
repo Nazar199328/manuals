@@ -6,3 +6,5 @@ falloutNV_manual.txt
 glsl=enabled
 orm=fbo
 ddl=opengl
+
+Wine собрать с флагом samba!

@@ -8,3 +8,13 @@ orm=fbo
 ddl=opengl
 
 Wine собрать с флагом samba!
+
+При появлении ошибки "steam error Application load error P:0000065432"
+1) Cкачать фикс http://modgames.net/load/fallout_new_vegas/1/ispravitel_dlja_nvse/163-1-0-19401?lJwGgc
+Фикс кинуть в D:\Games\SteamLibrary\steamapps\common\Fallout New Vegas enplczru\ 
+
+2) Более правильный путь
+* Пропатчить родной стимовский екзешник http://www.nexusmods.com/newvegas/mods/62552/?
+* Перейти C:\Program Files\Steam, затем удалите папку appcache.
+* Полностью выйдите из аккаунта Стим, а потом снова зайдите в него.
+* Запустить FalloutNV.exe. Библиотека nvse_steam_loader.dll будет подхвачена автоматически.

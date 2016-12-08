@@ -18,13 +18,16 @@ D:\Games\SteamLibrary\steamapps\common\Fallout New Vegas enplczru\
 
 Более правильный путь
 ---------------------
-* Пропатчить родной стимовский екзешник http://www.nexusmods.com/newvegas/mods/62552/?
+* Пропатчить родной стимовский екзешник
+  http://www.nexusmods.com/newvegas/mods/62552/?
 * Перейти C:\Program Files\Steam, затем удалите папку appcache.
 * Полностью выйдите из аккаунта Стим, а потом снова зайдите в него.
-* Запустить FalloutNV.exe. Библиотека nvse_steam_loader.dll будет подхвачена автоматически.
+* Запустить FalloutNV.exe. Библиотека nvse_steam_loader.dll будет подхвачена
+  автоматически.
 
 Для Fallout Character Overhaul:
-Надо ini файле Fallout_default.ini менять строчку bLoadFaceGenHeadEGTFiles с 0 на 1.
+Надо ini файле Fallout_default.ini менять строчку bLoadFaceGenHeadEGTFiles с 0
+на 1.
 
 Билды
 -----
@@ -140,4 +143,3 @@ D:\Games\SteamLibrary\steamapps\common\Fallout New Vegas enplczru\
     Экипировка: броня скаута, китайская стелс-броня, одежда фракций.
     Имплантаты: ловкость, интеллект, удача.
     Напарники, компаньоны, спутники: Лили, ED-D, Рекс.
-

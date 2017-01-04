@@ -1,0 +1,1057 @@
+Gothic 3 - Cheat List/FAQ
+
+Gothic 3 Cheats
+PC Cheats
+tested and compiled by markog99 (markog99 -at- net -dot- hr)
+
+I am having problems testing every thing out as My console stuff just shows various colored BOXES :(  
+Anyway, I know it works because I did the old copy and paste trick: you can type in something into 
+the console (in my case it was just boxes) the OUTSIDE of the game highlight and copy or ctrl+c. 
+Now back into the console you can PASTE it into the console with Ctrl+V just like in windows. 
+I did My best to translate and organize the things here prorperly- this file contains pretty much 
+EVERY console cheat, every item, spell, creature, receipie, plant, et. in the game - there are a few 
+translation things but you can easiliy figure them out :) It took a lot of work to organize 
+everything so it may not be "perfect."
+
+remember:please tip the cheats in like this:
+It_1H_AncestorSword_01
+and not like this:it_1h_ancestorsword_01
+
+Important Cheats
+       
+Once the console is activated , then now the following keys are to you at the disposal:
+
+Key             Meaning
+
+F1              Snapshots provide screen SHOT in the file
+F2              between windowed mode and frame
+F3              Screen representation/out
+F5              QuickSave
+F6              Time passes much faster
+F7              Slow motion
+F8              heal and a reviving after death
+F9              Quickload
+
+
+In addition, you can enter the following Cheats into the console, which must be confirmed with 
+the ENTER key. EVERYTHING is CASE SENSITIVE.
+
+Cheat                           Effect
+
+god                             invulnerably
+fullhealth                      Life energy maximize
+spawn                           spawns a creature,monster, or NPC
+spawn SH                        Mr. Help appears, which gives you with all kinds of cheats - But it may only work for German version -possibly
+one have to type in "marvin" (without the quotes THEN open the console or something.) He used to be called the Character Helper (CH) in Gothic II.
+idkfa                           Gives 100 points to Every SKILL (but does not activate it for you) and 100 of practically every item in the game- (could mess up quests but WOW)
+teach                           teaches you specific thing - see the list
+teach all                       teaches everything, but sets your stats to 0
+give                            gives you a particular thing  in front of you (see list)
+INSERT                          gives you a particular thing and places it in your inventory (see lists)
+
+
+Weapons list
+       
+First likes further above described the console activate. There one can let appear with the following 
+instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as learn (teach). 
+The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Weapons:
+
+Command                         Meaning
+
+It_1H_AncestorSword_01                  Sword of the ancestors
+It_1H_AssDagger_01                      Assassinenmesser
+It_1H_AssSword_01                       Assassinenschwert
+It_1H_BarbarianSword_01                 Barbarian sword
+It_1H_Bastardsword_01                   Hybrid sword
+It_1H_Broadsword_01                     Broad sword
+It_1H_Club_01                           Club
+It_1H_Crescent_01                       Mondsichel
+It_1H_ElBastardo_01                     El Bastardo
+It_1H_Epee_01                           Sword
+It_1H_FlameSword_01                     Flame sword
+It_1H_GreatSword_01                     Large sword
+It_1H_Iceblade_01                       Ice blade
+It_1H_Ingvar_Sword                      North march value
+It_1H_Inquisitor_01                     Inquisitor
+It_1H_Katana_01                         Katana
+It_1H_Longsword_01                      Long sword
+It_1H_MasterSword_01                    Master sword
+It_1H_MiloksFirst_Sword_01              Krush Milok
+It_1H_Moonblade_01                      Moon blade
+It_1H_OrcSlayer_01                      Orkschl�chter
+It_1H_PaladinSword_01                   Paladinschwert
+It_1H_Rubyblade_01                      Ruby blade
+It_1H_Runesword_01                      Rune sword
+It_1H_Scimitar_01                       Bent sword
+It_1H_Sword_01                          Sword
+It_1H_Sword_01_OLD                      Barbarian sword
+It_1H_Sword_02                          Sword
+It_1H_Sword_Broad_01                    Broad sword
+It_1H_Sword_Long_01                     Long sword
+It_1H_Sword_Long_02                     Long sword
+It_1H_Sword_Rhobar_01                   King sword
+It_1H_Sword_Rust_01                     Rusty sword
+It_1H_Wenzel_Sword_01                   Wenzels sword
+It_2H_AncestorMight_01                  Power of the ancestors
+It_2H_Axe_01                            Controversy axe
+It_2H_Axe_Double_01                     Controversy axe
+It_2H_Axe_Double_02                     Doppelaxt
+It_2H_Axe_Lumberjack                    Holzf�lleraxt
+It_2H_Axe_Normal_01                     Axe
+It_2H_Axe_Rust_01                       Rusty controversy axe
+It_2H_Bak-Arash_Staff                   Schamanenstab
+It_2H_BarbarianAxe_01                   Barbarian controversy axe
+It_2H_Bardiche_01                       Beard axe
+It_2H_BerserkerAxe_01                   Berserker axe
+It_2H_DemonSword_01                     Demon Sword
+It_2H_Executioner_01                    Arranging sword
+It_2H_GreatInquisitor_01                Grossinquisitor
+It_2H_Halberd                           Hellebarde
+It_2H_Halberd_01                        Hellebarde
+It_2H_HeavyClub_01                      Heavy branch
+It_2H_InnosWrath_01                     Innos anger
+It_2H_NailedClub_01                     Nail club
+It_2H_OgreMorningStar_01                Oger Morgenstern
+It_2H_OrcAxe_01                         Krush Pach
+It_2H_OrcHalberd_01                     Krush Tarach
+It_2H_OrcSword_01                       Krush Varok
+It_2H_OrcWaraxe_01                      Krush Agash
+It_2H_OrderSword_01                     Medal sword
+It_2H_SpikedClub_01                     Prick club
+It_2H_Sword_01                          Zweih�nder
+It_2H_Sword_Bastard_01                  Hybrid sword
+It_2H_Sword_Old                         Rusty Zweih�nder
+It_2H_Sword_Ore_01                      Ore Zweih�nder
+It_2H_Sword_Rust_01                     Rusty Zweih�nder
+It_2H_Waraxe_01                         Battle hatchet
+It_2H_Warhammer_01                      War hammer
+It_Axe_01                               Controversy axe
+It_Axe_BarbarianAxe_01                  Barbarian controversy axe
+It_Axe_Bardiche_01                      Beard axe
+It_Axe_BattleAxe_01                     Controversy axe
+It_Axe_BerserkerAxe_01                  Berserker axe
+It_Axe_BerserkerRageAxe_01              Berserkerzorn
+It_Axe_HeavyClub_01                     Heavy branch
+It_Axe_NailedClub_01                    Nail club
+It_Axe_OgreMorningStar_01               Oger Morgenstern
+It_Axe_OrcSword_01                      Krush Varok
+It_Axe_OrcSword_02                      Krush Morok
+It_Axe_OrcWaraxe_01                     Krush Agash
+It_Axe_Orc_01                           Krush Pach
+It_Axe_Rust_01                          Rusty controversy axe
+It_Axe_SpikedClub_01                    Prick club
+It_Axe_Waraxe_01                        Battle hatchet
+It_Axe_Warhammer_01                     War hammer
+It_BattleAxe_01                         Controversy axe
+It_Bow_01                               bow
+It_Bow_Army                             Army bow
+It_Bow_Ass                              Assassinens Bow
+It_Bow_Bone                             Bone bow
+It_Bow_Composite                        Composite bow
+It_Bow_Deathbringer                     Todbringer
+It_Bow_Demon                            Demon Bow
+It_Bow_Dragon                           Kite bow
+It_Bow_Fight                            Combat bow
+It_Bow_Horn                             Horn bow
+It_Bow_Hunting                          Hunting bow
+It_Bow_Long                             Long bow
+It_Bow_Nimroder                         Nimroder
+It_Bow_Oak                              Oak bow
+It_Bow_OrcRipper                        Orkreisser
+It_Bow_Ork                              Ork bow
+It_Bow_Ranger                           Forest runner bow
+It_Bow_Rune                             Rune bow
+It_Bow_SilentDeath                      Quiet death
+It_Bow_War                              War bow
+It_Bow_WolfRipper                       Wolf bow
+It_Crossbow_01                          crossbow
+It_Crossbow_BloodHarvest                Blood harvest
+It_Crossbow_Bounty                      Head hunter crossbow
+It_Crossbow_Heavy                       Heavy crossbow
+It_Crossbow_KrashMorra                  Krash Morra
+It_Crossbow_Merc                        Mercenary crossbow
+It_Crossbow_Nrd                         Nordmar crossbow
+It_Crossbow_Orc                         Ork crossbow
+It_Crossbow_Rhino                       Rhino crossbow
+It_Crossbow_SlaveKiller                 Slave death
+It_Crossbow_War                         War crossbow
+It_Halberd_01                           Hellebarde
+It_Halberd_Orc_01                       Krush Tarach
+It_Irmak_2H_Halberd                     Krush Irmak
+It_Staff                                Staff of the Eternal Wonderer
+It_Staff_BladeStaff_01                  Blade staff
+It_Staff_Darkmage_01                    Staff of  darkness
+It_Staff_Darkmage_02                    Staff of  Schwarzmagiers
+It_Staff_Darkmage_03                    Staff of death
+It_Staff_Dominion_01                    Staff of fire protection
+It_Staff_Druid_01                       Staff of nature
+It_Staff_Fire                           Staff heat wave
+It_Staff_Firemage_01                    Staff of fire
+It_Staff_Firemage_02                    Staff of the FireMages
+It_Staff_Firemage_03                    Staff of the rule
+It_Staff_FireProt_01                    Staff of fire protection
+It_Staff_Fire_01                        Staff of the rule
+It_Staff_Healing_01                     Staff of the healing
+It_Staff_Ice                            Staff frost wave
+It_Staff_IceProt_01                     Staff of the ice protection
+It_Staff_JudgementStaff_01              Arranging staff
+It_Staff_Lightning                      Staff shock wave
+It_Staff_Magic                          Staff of the magic
+It_Staff_MagicProt_01                   Staff of the energy protection
+It_Staff_Mana_01                        Staff of the Zauberei
+It_Staff_Mana_02                        Staff of the magic
+It_Staff_Mana_03                        Staff of power
+It_Staff_OrcShaman_01                   Schamanenstab
+It_Staff_Power                          Staff of power
+It_Staff_Prot_01                        Staff of the defense
+It_Staff_Prot_02                        Staff of the protection
+It_Staff_Prot_03                        Staff of invulnerability
+It_Staff_Quarterstaff_01                Combat staff
+It_Staff_Scythe_01                      Scythe
+It_Staff_Sorcery                        Staff of the Zauberei
+It_Staff_Spear_01                       Spear
+It_Staff_Watermage_01                   Staff of the water
+It_Staff_Watermage_02                   Staff of the WaterMages
+It_Staff_Watermage_03                   Staff of reconciliation
+Arrow                                   Arrow
+BluntArrow                              Head nut-(Knockout Arrow?)
+Bolt                                    Pin
+Bolt_Sharp                              Blade pin
+ExplosiveArrow                          Blowing up arrow
+FireArrow                               Fire arrow
+Fist                                    Fist
+Mike_Arrow                              Arrow
+Mike_Axe                                Axe
+Mike_Bolt                               Pin
+Mike_Bow                                bow
+Mike_Crossbow                           crossbow
+Mike_Staff                              Helebarde
+Mike_Sword                              Sword
+TrollFist                               Trollfaust
+PoisonArrow                             Poison arrow
+
+
+Armor list
+       
+
+First like further above described the console activate. There one can let appear with the following 
+instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as F�higkeiten 
+erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Armor:
+
+Command                         Meaning
+sMage                                   Elite Assassinenr�stung
+Body_AssNovice                          Easy Assassinenr�stung
+Body_AssWarrior                         Assassinenr�stung
+Body_Babe_Myrtana_Peasant               -
+Body_Babe_Myrtana_Peasant_02            -
+Body_Babe_Myrtana_Slave                 -
+Body_Babe_Nrd_Peasant                   -
+Body_Babe_Varant_Dance                  -
+Body_Babe_Varant_Peasant                -
+Body_Babe_Varant_Slave                  -
+Body_Druid                              Druidenrobe
+Body_Firemage                           Fire robe
+Body_Firemage_Dirty                     Fire robe
+Body_Ghost                              -
+Body_King                               Rhobars armament
+Body_KingGuard                          Splendor armament
+Body_Leather                            Leather gap
+Body_MercElite                          Heavy Orks�ldner armament
+Body_MercNovice                         Easy Orks�ldner armament
+Body_MercNovice_02                      Easy Orks�ldner armament
+Body_Merc_Orcish                        Orkr�stung
+Body_Mercenary                          Orks�ldner armament
+Body_Mercenary_02                       Orks�ldner armament
+Body_Nom_Elite_Outlaw                   Heavy Nomadenkleidung
+Body_Nom_Novice_Outlaw                  Easy Nomadenkleidung
+Body_Nom_Warrior_Outlaw                 Nomadenkleidung
+Body_Nomad                              Nomadenkleidung
+Body_NomadNovice                        Easy Nomadenkleidung
+Body_NomadWarrior                       Heavy Nomadenkleidung
+Body_NrdElite                           Heavy Nordmar armament
+Body_NrdScout                           Easy Nordmar armament
+Body_NrdWarrior                         Nordmar armament
+Body_Nrd_Ancient                        -
+Body_Out_Elite                          Bandit armament
+Body_Out_Novice                         Bandit armament
+Body_Out_Novice_02                      Bandit armament
+Body_Out_Warrior                        Bandit armament
+Body_Out_Warrior_02                     Bandit armament
+Body_Paladin                            Paladin armament
+Body_PaladinWounded                     -
+Body_PaladinWounded_02                  -
+Body_PaladinWounded_03                  -
+Body_Paladin_02                         Paladin armament
+Body_Paladin_03                         Paladin armament
+Body_Peasant                            Farmer clothes
+Body_Peasant_02                         Farmer clothes
+Body_Player                             Clothes
+Body_Ranger                             Forest runner clothes
+Body_RebBandit                          Easy rebel armament
+Body_RebBandit_02                       Easy rebel armament
+Body_RebElite                           Heavy rebel armament
+Body_RebWarrior                         Rebel armament
+Body_RebWarrior_02                      Rebel armament
+Body_Slave                              Rag
+Body_Watermage                          Water robe
+Body_Xardas                             Blackmagierrobe
+Body_Zuben                              Zubens armament
+Fat_Body_AssTrader                      Clothes
+Fat_Body_AssTrader_02                   -
+Fat_Body_Cook                           -
+Fat_Body_NrdElite                       -
+Fat_Body_Slave                          -
+Fat_Body_Smith                          -
+It_Armor_Ass_H                          Elite Assassinenr�stung
+It_Armor_Ass_L                          Easy Assassinenr�stung
+It_Armor_Ass_M                          Assassinenr�stung
+It_Armor_Druid                          Druidenrobe
+It_Armor_KDF                            Fire robe
+It_Armor_KDW                            Water robe
+It_Armor_Leather                        Leather gap
+It_Armor_Merc_H                         Heavy Orks�ldner armament
+It_Armor_Merc_L                         Light Orks�ldner armament
+It_Armor_Merc_M                         Orks�ldner armament
+It_Armor_Nom_H                          Heavy Nomadenkleidung
+It_Armor_Nom_L                          Easy Nomadenkleidung
+It_Armor_Nom_M                          Nomadenkleidung
+It_Armor_Nrd_H                          Heavy Nordmar armament
+It_Armor_Nrd_L                          Easy Nordmar armament
+It_Armor_Nrd_M                          Nordmar armament
+It_Armor_Paladin                        Paladin Armor
+It_Armor_Peasant                        Farmer clothes
+It_Armor_Ranger                         Forest runner clothes
+It_Armor_Reb_H                          Heavy rebel armament
+It_Armor_Reb_L                          Light/Easy rebel armament
+It_Armor_Reb_M                          Rebel armament
+It_Armor_Rhobar                         Rhobars armament
+It_Armor_RoyalGuard                     Splendor armament
+It_Armor_Xardas                         Blackmagierrobe
+It_Armor_Zuben                          Zubens armament
+It_Helmet_Crown_01                      The crown of Myrtana
+It_Helmet_Guard_01                      Guard helmet
+It_Helmet_HeavyTurban_01                Magnificent Turban
+It_Helmet_Horn_01                       Horn helmet
+It_Helmet_Leather_01                    Leather helmet
+It_Helmet_Leather_02                    Leather helmet
+It_Helmet_LightHorn_01                  More easily horn helmet
+It_Helmet_LightLeather_01               More easily leather helmet
+It_Helmet_LightMerc_01                  More easily mercenary helmet
+It_Helmet_Merc_01                       Mercenary helmet
+It_Helmet_Turban_01                     Turban
+
+
+Shield list
+       
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as 
+F�higkeiten erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Shields:
+
+Command                         Meaning
+
+It_Shield_Knight_01                     Knight sign
+It_Shield_Leather_01                    Leather sign
+It_Shield_Paladin_01                    Paladinschild
+It_Shield_Rhobar_01                     K�nigsschiild
+It_Shield_Round_01                      Rundschild
+It_Shield_Rune_01                       Rune sign
+It_Shield_Skull_01                      Head sign
+It_Shield_Tower_01                      Sign
+It_Shield_Wood_01                       Wood sign
+It_Shield_Wood_02                       Wood sign
+It_Shield_Wood_03                       Wood sign
+It_Shield_Wood_04                       Wood sign
+It_Shield_Wood_05                       Wood sign
+It_Shield_Wood_06                       Wood sign
+It_Shield_Wood_07                       Wood sign
+Mike_Shield                             Sign
+
+
+Amulet list
+       
+
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as F�higkeiten erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Amulette:
+
+Command                         Meaning
+
+It_Am_Assassin_01                       Amulett of the Assassinen
+It_Am_DEX_01                            Amulett of the hunter
+It_Am_Druid_01                          Amulett of the Druiden
+It_Am_HP_01                             Amulett of the vitality
+It_Am_Hunter_01                         Amulett of the hunter
+It_Am_Jaeger_02                         Amulett of the concentration
+It_Am_Jaeger_03                         Amulett of the hunter
+It_Am_Krieger_01                        Amulett Kraft
+It_Am_Krieger_02                        Amulett of the honour
+It_Am_Krieger_03                        Amulett of the Warriors/Soldiers
+It_Am_Mage_01                           Magieramulett
+It_Am_Magier_01                         Amulett of the knowledge
+It_Am_Magier_02                         Amulett of the Zauberei
+It_Am_Magier_03                         Amulett of the Magiers
+It_Am_MP_01                             Amulett of the magic
+It_Am_Paladin_01                        Amulett of the Paladins
+It_Am_Priester_01                       Amulett of the faith
+It_Am_Priester_02                       Amulett that became
+It_Am_Priester_03                       Amulett of the priest
+It_Am_Prot_Edge_01                      Amulett of the defense
+It_Am_Prot_Edge_02                      Amulett of the masterful protection
+It_Am_Prot_Edge_03                      Harnischamulett
+It_Am_Prot_Edge_04                      Amulett of the iron skin
+It_Am_Prot_Fire_01                      Amulett of the fire protection
+It_Am_Prot_Ice_01                       Amulett of the ice protection
+It_Am_Prot_Lightning_01                 Amulett of the energy defense
+It_Am_Prot_Missile_01                   Amulett of the projectile defense
+It_Am_SP_01                             Amulett of the perseverance
+It_Am_STR_01                            Amulett of the strength
+It_Am_Thief_01                          Diebesamulett
+It_Am_Warrior_01                        Amulett of the Kriegers
+It_Artefact_Amulet                      Amulett of the G�ttlichkeit
+It_Ramon_Amulet                         Ramons Amulett
+
+
+Receipe list
+       
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as F�higkeiten erlenen (teach). The correct instructions read:
+
+Command Meaning
+spawn xyz       Article xyz to appear leave (see list)
+INSERT xyz      Article xyz in the inventory place (see list)
+teach xyz       Ability xyz learn (see list)
+
+
+Recepies for Blacksmiths&Alchemists:
+
+Command                         Meaning
+It_Recipe_2Handed                       Zweih�nder
+It_Recipe_2HandedOre                    Ore Zweih�nder
+It_Recipe_Alligator                     Crocodile
+It_Recipe_AncestorMight                 Power of the ancestors
+It_Recipe_AncestorSword                 Sword of the ancestors
+It_Recipe_Bastardsword                  Hybrid sword
+It_Recipe_Bison                         Bison
+It_Recipe_Bloodfly                      Blood fly
+It_Recipe_BluntArrow                    Prescription head nut
+It_Recipe_Boar                          Wild pig
+It_Recipe_Booze_1                       Liquor
+It_Recipe_Booze_2                       Liquor
+It_Recipe_Booze_3                       Booze
+It_Recipe_Booze_Nrd                     Nordmarer nebula spirit
+It_Recipe_Broadsword                    Broad sword
+It_Recipe_CureDisease                   Weakness heal
+It_Recipe_CurePoison                    Gegengift
+It_Recipe_Deadly                        Deadly poison
+It_Recipe_DEX                           Drink of the hunt
+It_Recipe_ElBastardo                    El Bastardo
+It_Recipe_ExplosiveArrow                Prescription blowing up arrow
+It_Recipe_FireArrow                     Prescription fire arrow
+It_Recipe_Firewaran                     Feuerwaran
+It_Recipe_Fire_1                        Liquid fire
+It_Recipe_Fire_2                        Liquid fire
+It_Recipe_Health_1                      Heal-climb from healing plants
+It_Recipe_Health_2                      Heal-climb from sun herb
+It_Recipe_Health_3                      Heal-climb from welfare roots
+It_Recipe_Health_4                      Heal-climb from forest berries
+It_Recipe_HPMax                         Drink of the vitality
+It_Recipe_Lion                          Lion
+It_Recipe_Longsword                     Long sword
+It_Recipe_Lurker                        Lurker
+It_Recipe_Mana_1                        Manatrank from Manapflanzen
+It_Recipe_Mana_2                        Manatrank from Feuernesseln
+It_Recipe_Mana_3                        Manatrank from charm roots
+It_Recipe_Mana_4                        Manatrank from Morgentau
+It_Recipe_MasterSword                   Master sword
+It_Recipe_MC                            Minecrawler
+It_Recipe_Meatbug                       Meat bug
+It_Recipe_Meatbugragout                 Fleischwanzenragout
+It_Recipe_MPMax                         Drink of the concentration
+It_Recipe_NrdSword                      North march value Sword
+It_Recipe_PoisonArrow                   Prescription poison arrow
+It_Recipe_Poison_1                      The poison is won from a Giftblase.
+It_Recipe_Poison_2                      The poison is won from Waranzungen
+It_Recipe_Poison_3                      Poison from the pricks of the blood fly
+It_Recipe_Rhino                         Nashorn
+It_Recipe_Rubyblade                     Ruby blade
+It_Recipe_Runesword                     Rune sword
+It_Recipe_Sabertooth                    Sword tooth
+It_Recipe_Scavenger                     Scavenger
+It_Recipe_Shadowbeast                   Shade runner
+It_Recipe_Snapper                       Snapper
+It_Recipe_SPMax                         Drink of the perseverance
+It_Recipe_Stamina_1                     Persevere-climb
+It_Recipe_Stamina_2                     Persevere-climb
+It_Recipe_Stew                          Pot
+It_Recipe_Stollengrollen                Stoll close roles
+It_Recipe_STR                           Drink of the strength
+It_Recipe_SwampLurker                   Sump lurker
+It_Recipe_Waran                         Waran
+It_Recipe_Wolf                          Wolf
+
+
+List of the abilities/perks/SKILLS
+       
+
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as 
+F�higkeiten erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Abilities/Perks/SKILLSs:
+
+Command                         Meaning
+It_Perk_1H1H_1                          Fight with two blade
+It_Perk_1H1H_2                          Master of the two blade
+It_Perk_1H_1                            Sword fighter
+It_Perk_1H_2                            Strong sword fighter
+It_Perk_1H_3                            Sword master
+It_Perk_Acrobatic                       Akrobatik
+It_Perk_Assassin                        Meucheln
+It_Perk_Axe_1                           Large weapons
+It_Perk_Axe_2                           Large weapons II
+It_Perk_Axe_3                           Large weapons III
+It_Perk_Barter                          Feil
+It_Perk_Bow_1                           Elbow
+It_Perk_Bow_2                           Elbow contactor
+It_Perk_Bow_3                           Master contactor
+It_Perk_Crossbow_1                      Heavy arm chest
+It_Perk_Crossbow_2                      Arm chest contactor
+It_Perk_Crossbow_3                      Master contactor
+It_Perk_Darkmage                        Schwarzmagier
+It_Perk_DeadlyArrow                     Deadly arrows manufacture
+It_Perk_Druid                           Druide
+It_Perk_Excuse                          Rausreden
+It_Perk_ExplosiveArrow                  Explosion arrows manufacture
+It_Perk_FireArrow                       Fire arrows manufacture
+It_Perk_Firemage                        Feuermagier
+It_Perk_HeavyArmor                      Arms improve
+It_Perk_Hunter_1                        Game hunter
+It_Perk_Hunter_2                        Large game hunter
+It_Perk_ImmuneToDisease                 Weakness resistance
+It_Perk_ImmuneToPoison                  Poison resistance
+It_Perk_JumpAttack                      -
+It_Perk_KnockOut                        Strike down
+It_Perk_Learn                           Fast learning
+It_Perk_LightArmor                      Robes improve
+It_Perk_LockPick_1                      Simple locks crack
+It_Perk_LockPick_2                      Heavy locks crack
+It_Perk_LockPick_3                      Impossible locks crack
+It_Perk_MasterGladiator                 Regeneration
+It_Perk_MasterMage                      One acre generation
+It_Perk_MasterThief                     Master thief
+It_Perk_Mining                          Sch�rfer
+It_Perk_OrcHunter                       Orkj�ger
+It_Perk_OrcSlayer                       Orkt�ter
+It_Perk_Orcslayer                       Orkt�ter
+It_Perk_Paladin                         Paladin
+It_Perk_PickPocket_1                    Simple pick-pocketing
+It_Perk_PickPocket_2                    Heavy pick-pocketing
+It_Perk_PickPocket_3                    Impossible pick-pocketing
+It_Perk_PoisonArrow                     Poison arrows manufacture
+It_Perk_PoisonBlade                     Blade poison
+It_Perk_PotionDangerous                 Dangerous watering places
+It_Perk_PotionHP                        Welfare watering places brew
+It_Perk_PotionMP                        Manatr�nke brew
+It_Perk_PotionPerm                      Watering place with permanent effect
+It_Perk_PotionPoison                    Poison manufacture
+It_Perk_PotionTransform                 Conversion watering places brew
+It_Perk_ResistCold                      Resistance against cold weather
+It_Perk_ResistHeat                      Resistance against heat
+It_Perk_SharpenBlade                    Blade sharpen
+It_Perk_Shield_1                        Sign parade
+It_Perk_Shield_2                        Strong sign parade
+It_Perk_Smith_1                         Forge
+It_Perk_Smith_2                         Ore weapons schmieden
+It_Perk_Smith_3                         Weapons from pure ore schmieden
+It_Perk_Sneak_1                         Creep
+It_Perk_Sneak_2                         Sound-loose hunter
+It_Perk_Sprinter                        Perseverance of the wolf
+It_Perk_StaffMagic                      Magic staffs
+It_Perk_StaffParade                     Magic staffs
+It_Perk_Staff_1                         Staff fight
+It_Perk_Staff_2                         Staff fight II
+It_Perk_Staff_3                         Staff fight III
+It_Perk_TrophyFur                       Animal skins take
+It_Perk_TrophySkin                      Reptile skins take
+It_Perk_TrophyTeeth                     Teeth, claws and horns
+It_Perk_Watermage                       Wassermagier
+
+
+Plant list:
+       
+
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as 
+learn (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Plants:
+
+Command                         Meaning
+
+It_Plant_Alligator                      Blutschilf
+It_Plant_Booze                          Liquor berry
+It_Plant_Booze_Snow                     Liquor berry
+It_Plant_Cactus                         Kaktusbl�te
+It_Plant_DemonMush                      D�monenpilz
+It_Plant_DemonMush_Snow                 D�monenpilz
+It_Plant_DEX                            Goblinbeere
+It_Plant_DEX_Snow                       Goblinbeere
+It_Plant_DruidStone                     Stone root
+It_Plant_Health                         Welfare plant
+It_Plant_HealthPerm                     Kings Sorrel herb
+It_Plant_HealthPerm_Snow                Kings Sorrel herb
+It_Plant_Health_02                      Sun herb
+It_Plant_Health_02_Snow                 Sun herb
+It_Plant_Health_03                      Welfare root
+It_Plant_Health_03_Snow                 Welfare root
+It_Plant_Health_04                      Forest berry
+It_Plant_Health_04_Snow                 Forest berry
+It_Plant_Health_Snow                    Welfare plant
+It_Plant_Lion                           King thistle
+It_Plant_Mana                           Manapflanze
+It_Plant_ManaPerm                       Flame berry
+It_Plant_ManaPerm_Snow                  Flame berry
+It_Plant_Mana_02                        Feuernessel
+It_Plant_Mana_02_Snow                   Feuernessel
+It_Plant_Mana_03                        Charm root
+It_Plant_Mana_03_Snow                   Charm root
+It_Plant_Mana_04                        Morgentau
+It_Plant_Mana_04_Snow                   Morgentau
+It_Plant_Mana_Snow                      Manapflanze
+It_Plant_Perm_01                        Kronst�ckel
+It_Plant_Perm_01_Snow                   Kronst�ckel
+It_Plant_ShapeMush                      Strange mushroom
+It_Plant_ShapeMush_Snow                 Strange mushroom
+It_Plant_Snapper                        Snapperroot
+It_Plant_Stamina                        Ogerblatt
+It_Plant_Stamina_01                     Ogerblatt
+It_Plant_Stamina_01_Snow                Ogerblatt
+It_Plant_Stamina_02                     Iron stem
+It_Plant_Stamina_02_Snow                Iron stem
+It_Plant_STAPerm                        Harnischkraut
+It_Plant_STAPerm_Snow                   Harnischkraut
+It_Plant_StoneNettle                    Felsnessel
+It_Plant_StoneNettle_Snow               Felsnessel
+It_Plant_STR                            Kite root
+It_Plant_STR_Snow                       Kite root
+It_Plant_SwampWeed                      Sump herb
+It_Plant_ToadMush                       Kr�tenwurz
+It_Plant_ToadMush_Snow                  Kr�tenwurz
+It_Plant_Trelott                        Staudenlobelie
+It_Plant_Wolf                           Wolf herb
+It_Plant_Wolf_Snow                      Wolf herb
+
+
+Magic list
+       
+
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as learn (teach). The correct instructions read- With the scrolls you can spawn or INSERT 
+but you can teach command on the SPELLS :
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Magic:
+
+Command                         Meaning
+It_DruidStone_Lion                      Druidenstein of the lion
+It_DruidStone_Lurker                    Druidenstein lurker
+It_DruidStone_Ripper                    Druidenstein of the Rippers
+It_DruidStone_Ripper_Broken             Destroyed Druidenstein
+It_DruidStone_Shadowbeast               Druidenstein of the shade runner
+It_DruidStone_Snapper                   Druidenstein of the Snappers
+It_DruidStone_Waran                     Druidenstein be to
+It_DruidStone_Wolf                      Druidenstein of the wolf
+It_Scroll_ALC_01                        Alchemie I
+It_Scroll_AnimalForm                    Animal shape
+It_Scroll_ArmyOfDarkness                Army of the darkness
+It_Scroll_BanishVermin                  Drive out
+It_Scroll_BlessWeapon                   Weapon benediction
+It_Scroll_Bloodlust                     Blood intoxication
+It_Scroll_CallAnimals                   Animals call
+It_Scroll_Charm                         Forgotten
+It_Scroll_CureDisease                   Strengths
+It_Scroll_CurePoison                    Poisoning heal
+It_Scroll_DestroyEvil                   Bad destroy
+It_Scroll_Disease                       Weaknesses
+It_Scroll_DuskToDawn                    Night to day
+It_Scroll_Fear                          Fright
+It_Scroll_Fireball                      Fire ball
+It_Scroll_Firerain                      Fire rain
+It_Scroll_Flamesword                    Flame sword call
+It_Scroll_FrostWave                     Ice wave
+It_Scroll_Hailstorm                     Hail tower
+It_Scroll_Heal                          Heal
+It_Scroll_Healing                       Healing
+It_Scroll_HealOther                     Remote healing
+It_Scroll_HeatWave                      Flame wave
+It_Scroll_Icelance                      Ice lance
+It_Scroll_INT_01                        Old scroll
+It_Scroll_Light                         Light
+It_Scroll_Lightningbolt                 Thunderbolt
+It_Scroll_Meteor                        Meteor
+It_Scroll_Mist                          Fog
+It_Scroll_OpenLocks                     Locks open
+It_Scroll_Poison                        Poison
+It_Scroll_Refresh                       -
+It_Scroll_Resurrect                     -
+It_Scroll_ShockWave                     Energy field
+It_Scroll_Sleep                         Sleep
+It_Scroll_SoulTravel                    Soul migration
+It_Scroll_SpiritLink                    Spirit contact
+It_Scroll_SummonDemon                   D�mon swore to
+It_Scroll_SummonGoblin                  Goblin swore to
+It_Scroll_SummonGolem                   GOLEM swore to
+It_Scroll_SummonImp                     Skeleton swore to
+It_Scroll_SummonLightning               Lightning swore to
+It_Scroll_SummonSkeleton                Skeleton swore to
+It_Scroll_TameAnimal                    Animal z�hmen
+It_Scroll_Telekinesis                   Telekinese
+It_Scroll_TimeBubble                    Time blister
+It_Scroll_WordOfControl                 Word of the rule
+It_Spell_AnimalForm                     Animal shape
+It_Spell_ArmyOfDarkness                 Army of the darkness
+It_Spell_BanishVermin                   Drive out
+It_Spell_BlessWeapon                    Weapon benediction
+It_Spell_Bloodlust                      Blood intoxication
+It_Spell_CallAnimals                    Animals call
+It_Spell_Charm                          Forgotten
+It_Spell_CureDisease                    Strengths
+It_Spell_CurePoison                     Poisoning heal
+It_Spell_DestroyEvil                    Bad destroy
+It_Spell_Disease                        Weaknesses
+It_Spell_DuskToDawn                     Night to day
+It_Spell_Fear                           Fright
+It_Spell_Fireball                       Fire ball
+It_Spell_Firerain                       Fire rain
+It_Spell_Flamesword                     Flame sword call
+It_Spell_FrostWave                      Ice wave
+It_Spell_Hailstorm                      Hail tower
+It_Spell_Heal                           Heal
+It_Spell_Healing                        Healing
+It_Spell_HealOther                      Remote healing
+It_Spell_HeatWave                       Flame wave
+It_Spell_IceBomb                        Ice explosion
+It_Spell_Icelance                       Ice lance
+It_Spell_Light                          Light
+It_Spell_Lightningbolt                  Thunderbolt
+It_Spell_Meteor                         Meteor
+It_Spell_Mist                           Fog
+It_Spell_OpenLocks                      Locks open
+It_Spell_Poison                         Poison
+It_Spell_Refresh                        Erfri
+It_Spell_Resurrect                      Revival
+It_Spell_ShockWave                      Shock wave
+It_Spell_Sleep                          Sleep
+It_Spell_SoulTravel                     Soul migration
+It_Spell_SpiritLink                     Spirit contact
+It_Spell_SummonDemon                    D�mon swore to
+It_Spell_SummonGoblin                   Goblin swore to
+It_Spell_SummonGolem                    GOLEM swore to
+It_Spell_SummonImp                      Skeleton swore to
+It_Spell_SummonLightning                Lightning swore to
+It_Spell_SummonSkeleton                 Skeleton swore to
+It_Spell_TameAnimal                     Z�hmen
+It_Spell_Telekinesis                    Telekinese
+It_Spell_TimeBubble                     Time blister
+It_Spell_WordOfControl                  Word of the rule
+
+Ring list
+       
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as learn (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Rings:
+
+Command                         Meaning
+
+It_Am_Jaeger_01                         Ring of the perseverance
+It_Artefact_Ring_01                     Adanos' ring
+It_Artefact_Ring_02                     Adanos' ring
+It_Artefact_Ring_Geldern                Old Alchemistenring
+It_Ring_DEX_01                          Ring of the hunt
+It_Ring_HP_01                           Ring health
+It_Ring_Missile_01                      Ring of the arrow defense
+It_Ring_MP_01                           Ring of the magic
+It_Ring_Prot_Combat_01                  Protection ring of the fight
+It_Ring_Prot_Edge_01                    Weapon protection ring
+It_Ring_Prot_Edge_02                    Ring of the defense
+It_Ring_Prot_Fire_01                    Fire protection ring
+It_Ring_Prot_Ice_01                     Ice protection ring
+It_Ring_Prot_LIGHTNING_01               Ring of the energy defense
+It_Ring_Prot_Lightning_01               Ring of the energy defense
+It_Ring_Prot_Magic_01                   Protection ring of the magic
+It_Ring_Prot_Missile_01                 Ring of the arrow defense
+It_Ring_SP_01                           Ring of the perseverance
+It_Ring_STR_01                          Strength ring
+It_Ri_Jaeger_01                         Ring of the hunters 1
+It_Ri_Jaeger_02                         Ring of the hunters 2
+It_Ri_Jaeger_03                         Ring of the hunters 3
+It_Ri_Krieger_01                        Ring of the Warrior 1
+It_Ri_Krieger_02                        Ring of the Warrior 2
+It_Ri_Krieger_03                        Ring of the Warrior 3
+It_Ri_Magier_01                         Ring of the Magier 1
+It_Ri_Magier_02                         Ring of the Magier 2
+It_Ri_Magier_03                         Ring of the Magier 3
+It_Ri_Priester_01                       Ring of the priests 1
+It_Ri_Priester_02                       Ring of the priests 2
+It_Ri_Priester_03                       Ring of the priests 3
+
+
+
+List of the Teleportstones
+       
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as learn (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Teleportsonea:
+
+Command                         Meaning
+
+It_Teleport_Ardea                       Teleport after Ardea
+It_Teleport_Bakaresh                    Teleport after Bakaresh
+It_Teleport_Beliar                      Teleport to the large Beliartempel in Bakaresh
+It_Teleport_BenErai                     Teleport after Ben Erai
+It_Teleport_BenSala                     Teleport after Ben Sala
+It_Teleport_Braga                       Teleport after Braga
+It_Teleport_Faring                      Teleport after Faring
+It_Teleport_FireClan                    Teleport to the fire clan
+It_Teleport_Geldern                     Teleport after funds
+It_Teleport_Gotha                       Teleport after Gotha
+It_Teleport_Hammerclan                  Teleport to the hammer clan
+It_Teleport_Innos                       Teleport to the Innosschrein in the monastery
+It_Teleport_Ishtar                      Teleport after Ishtar
+It_Teleport_KapDun                      Teleport after cape Dun
+It_Teleport_King                        Teleport directly to the throne hall of king Rhobar II.
+It_Teleport_Lago                        Teleport after Lago
+It_Teleport_LeaveVangard                ?
+It_Teleport_Monastery                   Teleport to the monastery
+It_Teleport_Montera                     Teleport after Montera
+It_Teleport_MoraSul                     Teleport after Mora Sul
+It_Teleport_Nemora                      Teleport after Nemora
+It_Teleport_Okara                       Teleport after Okara
+It_Teleport_Reddock                     Teleport after talking dock
+It_Teleport_Silden                      Teleport after Silden
+It_Teleport_Trelis                      Teleport after Trelis
+It_Teleport_VangardTempel               Teleport to the temple of Vengard
+It_Teleport_Wolfclan                    Teleport to the wolf clan
+It_Teleport_Xardas                      Teleport to Xardas tower
+It_Teleport_Zuben                       Teleport directly in Zubens palace
+
+
+List of Potions
+       
+First like further above described the console activate. There one can let appear with the
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as 
+F�higkeiten erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Potions:
+
+Command                         Meaning
+
+It_Potion                               Bottle
+It_Potion_Alligator                     Conversion crocodile
+It_Potion_Bison                         Conversion  Bison
+It_Potion_Bloodfly                      Conversion blood fly
+It_Potion_Boar                          Conversion Keiler
+It_Potion_CureDisease                   Healing weakness
+It_Potion_CurePoison                    Cure Poison
+It_Potion_Deadly                        Deadly poison
+It_Potion_DEX                           Drink of the hunt
+It_Potion_Empty                         Fl�schchen
+It_Potion_Fire                          Liquid fire
+It_Potion_Firewaran                     Conversion drink
+It_Potion_Health                        Restore Health
+It_Potion_HPMax                         Drink of the vitality
+It_Potion_Lion                          Conversion lion
+It_Potion_Lurker                        Conversion lurker
+It_Potion_Mana                          Manatrank (Restore mana?)
+It_Potion_MC                            Conversion Minecrawler
+It_Potion_Meatbug                       Conversion meat bug
+It_Potion_MPMax                         Drink of the concentration
+It_Potion_Poison                        Poison
+It_Potion_Rhino                         Conversion Nashorn
+It_Potion_Sabertooth                    Conversion sword tooth
+It_Potion_Scavenger                     Conversion Scavenger
+It_Potion_Shadowbeast                   Conversion shade runner
+It_Potion_Snapper                       Conversion Snapper
+It_Potion_SPMax                         Drink of the perseverance
+It_Potion_Stamina                       Restore Stamina
+It_Potion_STR                           Drink of the strength
+It_Potion_SwampLurker                   Conversion sump lurker
+It_Potion_Swamplurker                   Conversion sump lurker
+It_Potion_Waran                         Conversion Waran
+It_Potion_Wolf                          Conversion wolf
+
+
+Other Objects&Misc Objects List
+       
+
+First like further above described the console activate. There one can let appear with the 
+following instructions articles (spawn) and/or in the inventory to place (INSERTs) as well 
+as F�higkeiten erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Other Objects&Misc Objects:
+
+Command                         Meaning
+
+It_Aldo_Schatulle                       Old casket
+It_Ali_Artefact                         Ancestor stone
+It_AlShedim_Deadkeeper_01               Urn of the dead guards
+It_AlShedim_Healer_01                   Jug that sound ones.
+It_AlShedim_Warrior_01                  Figure of the Krieger
+It_Amul_Goldsack                        Amul�s bag
+It_Ancestor_Stone_01                    The ancestor stone of Akasha
+It_Ancestor_Stone_03                    The ancestor stone of Snorre
+It_Ancestor_Stone_04                    The ancestor stone of Baldar
+It_Ancestor_Stone_05                    The ancestor stone of Angir
+It_Ancestor_Stone_06                    The ancestor stone of Berek
+It_Artefact_Abbas                       Cup of the water dealers
+It_Artefact_Crown                       Adanos crown
+It_Artefact_GeldernShadowBeastRuin      Schattenzepter
+It_Artefact_Helmet_Geldern              Helmet of the first Paladins
+It_Artefact_Robe                        Adanos' robe
+It_Basir_GoldChest                      It belongs to Basir
+It_Black_Stonepiece                     Black fragment
+It_Chalice_Beliar                       Asams bowl
+It_Chest_Good                           Casket
+It_Chest_Normal                         Casket
+It_Cup_Gold                             Gold cup
+It_Cup_Gold_KapDun                      Golden cup
+It_Cup_Gold_MoraSul                     Soul cup
+It_Cup_Horn                             Drinking horn
+It_Cup_Silver                           Silver cup
+It_Cup_Silver_KapDun                    Silver cup
+It_Ejnar_Helm                           Helmet
+It_FiremageCup                          Fire cup
+It_FiremageCup_Blessed                  Gesegneter fire cup
+It_Fokus                                Focus stone
+It_Gold                                 Coin
+It_GoldChalice_Lares                    Gold bowl
+It_GoldNugget                           Gold-break into
+It_GoldRing                             Decoration
+It_Gold_Stack_01                        Gold
+It_Gold_Stack_02                        Much gold
+It_Gold_Stack_03                        Treasure
+It_Gold_Stonepiece                      Golden fragment
+It_Gold_Stoneplate                      Golden stone board
+It_Ilja_Artefact                        Iljas artifact
+It_Kamak_Artefact                       Kamaks artifact
+It_Necklace                             Decoration
+It_Nefarius_Spell                       Strange stone
+It_Ore                                  Ore
+It_Scepter                              Zepter of Varant
+It_Thorald_Armor                        Thoralds armament
+
+
+Documents List
+       
+
+First like further above described the console activate. There one can let appear with the following 
+instructions articles (spawn) and/or in the inventory to place (INSERTs) as well as F�higkeiten 
+erlenen (teach). The correct instructions read:
+
+Command                         Meaning
+spawn xyz                               Article xyz to appear leave (see list)
+INSERT xyz                              Article xyz in the inventory place (see list)
+teach xyz                               Ability xyz learn (see list)
+
+
+Documents:
+
+Command                         Meaning
+It_Ashton_GoldList                      Ashtons golden one list
+It_Aidan_Book                           Aidans book
+It_AlShedim_Priest_01                   Stone board of the priests
+It_AlShedim_Wise_01                     Scroll of the scholars
+It_Bernado_Letter                       Bernados letter
+It_Black_Stoneplate                     Black stone board
+It_Bradley_SlaveList                    Bradley's slave list
+It_Book                                 Book
+It_Book_01                              Book
+It_Book_ALC_01                          Bases of the Alchemie
+It_Book_INT_01                          Old book
+
+All of the work done by Gideon25 and all credits go to him, i did only minor changes
+
+Big Guy (big-guy_1) (net) (hr) 
+February 27, 2007 
+
+markog99 (markog99) (net) (hr)
+November 25, 2008 (corrections)

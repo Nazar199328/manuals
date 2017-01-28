@@ -1,73 +1,76 @@
+#-*-sh-*-
 Дерево портежей - /usr/portage
 Исходники пакетов - /usr/portage/distfiles
 
-# emerge --sync # обновление portage.
-# emerge -info # Смотрим текущие настройки.
-# emerge -pv bind # Смотрим, что нужно для установки пакета.
-# emerge -av samba # Аналог -p, но после вывода информации, спрашивает продолжить ли выполнять emerge.
-# emerge -av =app-editors/nano-2.0.9 # установка конкретной версии пакета
+emerge --sync # обновление portage.
+emerge -info # Смотрим текущие настройки.
+emerge -pv bind # Смотрим, что нужно для установки пакета.
+emerge -av samba # Аналог -p, но после вывода информации, спрашивает продолжить
+                 # ли выполнять emerge.
+emerge -av =app-editors/nano-2.0.9 # установка конкретной версии пакета
 
-# qlist -a # список всех установленных файлов пакетов
-# qlist -I # список всех установленных пакетов
+qlist -a # список всех установленных файлов пакетов
+qlist -I # список всех установленных пакетов
 
-# equery uses firefox # с какими флагами был установлен пакет firefox.
-# equery u firefox # посмотреть значения USE флагов для firefox.
+equery uses firefox # с какими флагами был установлен пакет firefox.
+equery u firefox # посмотреть значения USE флагов для firefox.
 
-# equery files firefox # какие файлы принадлежат пакету firefox.
-# equery f firefox # какие файлы принадлежат пакету firefox.
+equery files firefox # какие файлы принадлежат пакету firefox.
+equery f firefox # какие файлы принадлежат пакету firefox.
 
-# equery belongs foo # какому пакету принадлежит файл foo
-# equery b foo # какому пакету принадлежит файл foo
+equery belongs foo # какому пакету принадлежит файл foo
+equery b foo # какому пакету принадлежит файл foo
 
-# equery depgraph firefox # показать дерево зависимостей пакета firefox
-# equery -q d python # какие установленные пакеты зависят от python.
-# quickpkg firefox # Собираем бинарный пакет с уже установленного в системе.
-# eclean -p distfiles # Выявляем устаревшие исходник.
-# eclean distfiles # Избавляемся от устаревших исходников, чистим /usr/portage/distfiles.
-# revdep-rebuild # Пересборка всех зависимостей по пакетам.
-# emerge --search pdf # Поиск пакета, в названии котрого есть pdf
-# emerge -p -f bind9 # Смотрим url откуда можно с тянуть sources.
+equery y portage # доступные версии пакетов
 
-# emerge -pe bind9 # Смотрим зависимости. Флаг -e - пересобрать зависимости
-# emerge -pu samba # Смотрим какие пакеты будут обновлены.
-# emerge -f samba # Качаем только исходники по пакету без установки.
-# emerge —k samba # установка прекомпиленный пакет из
-# emerge —K samba # Аналог -k, но если нужной прекомпиленной версии нет, то используется какая есть
-# emerge samba # Установка пакета.
-# emerge -u bind9 # Обновляем пакет.
+equery depgraph firefox # показать дерево зависимостей пакета firefox
+equery -q d python # какие установленные пакеты зависят от python.
+quickpkg firefox # Собираем бинарный пакет с уже установленного в системе.
+eclean -p distfiles # Выявляем устаревшие исходник.
+eclean distfiles # Избавляемся от устаревших исходников, чистим /usr/portage/distfiles.
+revdep-rebuild # Пересборка всех зависимостей по пакетам.
+emerge --search pdf # Поиск пакета, в названии котрого есть pdf
+emerge -p -f bind9 # Смотрим url откуда можно с тянуть sources.
 
-# emerge --deselect sys-fs/udev # Удаление пакета из world файла, включает --unmerge, --dep-clean
+emerge -pe bind9 # Смотрим зависимости. Флаг -e - пересобрать зависимости
+emerge -pu samba # Смотрим какие пакеты будут обновлены.
+emerge -f samba # Качаем только исходники по пакету без установки.
+emerge —k samba # установка прекомпиленный пакет из
+emerge —K samba # Аналог -k, но если нужной прекомпиленной версии нет, то используется какая есть
+emerge samba # Установка пакета.
+emerge -u bind9 # Обновляем пакет.
+
+emerge --deselect sys-fs/udev # Удаление пакета из world файла, включает --unmerge, --dep-clean
 # В файле /var/lib/portage/world список явным образом установленных пакетов
-# emerge -Cpv foo # Удаление пакета. То же что --unmerge
-# emerge --unmerge -pv foo # Удаление пакета.
+emerge --unmerge -pv foo # Удаление пакета.
+emerge -Cpv foo # Удаление пакета c исключением его из списка @world 
 
+emerge -uavDN @system # обновить системные пакеты с новыми флагами и зависимостями
+emerge -uavDN @world # обновить мир с новыми флагами и зависимостями
+emerge --update --newuse --deep @world # обновить мир
+emerge -a --depclean # Удаляем ненужные пакеты из системы, чистим систему.
+emerge -pv --depclean foo # Проверка зависимостей для удаляемого пакета
+emerge -eav @world # Пересборка системы
 
-# emerge -uavDN @system # обновить системные пакеты с новыми флагами и зависимостями
-# emerge -uavDN @world # обновить мир с новыми флагами и зависимостями
-# emerge --update --newuse --deep @world # обновить мир
-# emerge -a --depclean # Удаляем ненужные пакеты из системы, чистим систему.
-# emerge -pv --depclean foo # Проверка зависимостей для удаляемого пакета
-# emerge -eav @world # Пересборка системы
+etcat -v firefox # Вывести все версии пакета.
+etcat -u samba # Какими настройками USE (только из влияющих на этот пакет) была установлена программа.
+echo «category/moo some flags» >> /etc/portage/package.use # Добавление используемого флага
 
-# etcat -v firefox # Вывести все версии пакета.
-# etcat -u samba # Какими настройками USE (только из влияющих на этот пакет) была установлена программа.
-# echo «category/moo some flags» >> /etc/portage/package.use # Добавление используемого флага
-
-# etc-update # Обновление конфигурационных файлов.
-# dispatch-conf # Обновление конфигурационных файлов.
+etc-update # Обновление конфигурационных файлов.
+dispatch-conf # Обновление конфигурационных файлов.
 
 
 gentoolkit # основные утилиты: euse, equery, eclean, quickpkg…
 epm # аналог equery
 esearch # Быстрое индексирование пакетов, для быстрого поиска.
 
-# systemctl restart systemd-networkd.service # рестарт юнита интернета
+systemctl restart systemd-networkd.service # рестарт юнита интернета
 
-# layman -L # все доступные оверлеи
-# layman -l # подключенные оверлеи
-# layman -a overlay # подключить оверлей overlay
-# layman -s overlay # синхронизировать оверлей
-# layman -d overlay # удалить оверлей из локального списка
+layman -L # все доступные оверлеи
+layman -l # подключенные оверлеи
+layman -a overlay # подключить оверлей overlay
+layman -s overlay # синхронизировать оверлей
+layman -d overlay # удалить оверлей из локального списка
 
 Проблемы и решения
 ------------------
@@ -77,6 +80,22 @@ Failed to emerge sys-apps/texinfo-6.3
 
 Логи
 ----
-Чтобы включить ведение журнала загрузки, раскомментируйте строку rc_logger="YES" в /etc/openrc/rc.conf.
+Чтобы включить ведение журнала загрузки, раскомментируйте строку
+rc_logger="YES" в /etc/openrc/rc.conf.
+
 Когда он включен, журналы загрузки хранятся в /var/log/rc.log
 https://wiki.archlinux.org/index.php/OpenRC_(Русский)
+
+Обновление nvidia
+-----------------
+После обновления драйвера перезагрузить модуль nvidia:
+# lsmod | grep nvidia
+# rmmod nvidia
+# modprobe nvidia
+
+Добавим нвидию в modules (иначе придется загружать вручную после каждой перезагрузки):
+# nano -w /etc/conf.d/modules
+--------------------------
+modules="nvidia"
+
+После обновления ядра драйвер nvidia нужно перекомпилировать.

@@ -28,6 +28,7 @@ Adblock Plus - https://addons.mozilla.org/En-us/firefox/addon/adblock-plus/?src=
 YouTube Flash Video Player - https://addons.mozilla.org/ru/firefox/addon/youtube-flash-video-player/
 arc-firefox-theme - https://github.com/horst3180/arc-firefox-theme
 https://userstyles.org/styles/102262/twily-s-powerline-firefox-css - минималистичная тема для firefox
+https://addons.mozilla.org/en-US/firefox/addon/youtube-no-buffer/?src=search - отключает автозапуск видео на ТыТруба
 
 Добавить в Stylish фикс для ЛОРа (убирает скругления)
 	   	   -------------

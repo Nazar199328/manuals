@@ -27,6 +27,9 @@
    http://www.worldofgothic.de/dl/download_489.htm
 7. русская озвучка для Questpaket и Consequences + хотфиксы озвучки
 
+В wine:
+1. Переместить куда-нибудь содержимое папки redist
+2. Установить через winetricks: vcrun2008, physx, d3dx9_40
 Камни телепорта
 ----------------
 Миртана (Myrtana)

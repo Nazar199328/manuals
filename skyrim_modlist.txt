@@ -1,0 +1,36 @@
+	(0)	Skyrim.esm
+	(1)	Update.esm
+	(2)	Dawnguard.esm
+	(3)	Dragonborn.esm
+	(4)	HearthFires.esm
+	(5)	Unofficial Skyrim Legendary Edition Patch.esp
+	(6)	JSwords.esm
+	(7)	JackGaPub.esm
+	(8)	Lady Body.esm
+	(9)	Demonica.esm
+	(10)	SkyUI.esp
+	(11)	Males of Skyrim.esp
+	(12)	CMWoodenBows.esp
+	(13)	Unique Uniques.esp
+	(14)	Rebalance_Light.esp
+	(15)	EnhancedLightsandFX.esp
+	(16)	JSwordsDistributionBalancePlugin.esp
+	(17)	UIExtensions.esp
+	(18)	AddItemMenu2.esp
+	(19)	AmazingFollowerTweaks.esp
+	(20)	Auto Unequip Ammo.esp
+	(21)	My Home Is Your Home.esp
+	(22)	Run For Your Lives.esp
+	(23)	When Vampires Attack.esp
+	(24)	Convenient Horses.esp
+	(25)	Ghosu - Weapon Pack 1.esp
+	(26)	DEM-Lilith-Hair.esp
+	(27)	DEM Mavari.esp
+	(28)	DEM Blood Mage.esp
+	(29)	DEM Clothes.esp
+	(30)	DEM Housecarl.esp
+	(31)	DEM Serana.esp
+	(32)	DEM VampLord.esp
+	(33)	DEM War Lydia.esp
+	(34)	DEMv2-BloodBaroness.esp
+	(35)	DEMv2-ShadowWarrior.esp
